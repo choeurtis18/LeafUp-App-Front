@@ -1,38 +1,42 @@
+:root {
+  --color-text-1: #ffffff;
+  --color-text-5: #f2f4f5;
+  --color-text-10: #e6e8eb;
+  --color-text-20: #d1d5d9;
+  --color-text-30: #b8bfc4;
+  --color-text-40: #9ea7ad;
+  --color-text-50: #808991;
+  --color-text-60: #636c73;
+  --color-text-70: #525a61;
+  --color-text-80: #40474d;
+  --color-text-90: #303538;
+  --color-text-100: #212529;
+
+  --primary_color_1: #3B4A34;
+  --primary_color_2: #112703;
+
+  --secondary_color_1: #FFFFFF;
+  --secondary_color_2: #F2F2F2;
+  --secondary_color_3: #F6F6F6;
+  --secondary_color_4: #6E8464;
+  --secondary_color_5: #808080;
+
+  --shadow-34: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  --shadow-35: rgba(0, 0, 0, 0.05) 0 1px 2px 0;
+  --shadow-36: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  --shadow-37: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  --shadow-38: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  --shadow-39: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  --shadow-40: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+  --shadow-41: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+}
+
 .App {
   text-align: center;
+  background-color: var(--secondary_color_2);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar {
+  background-color: var(--secondary_color_1);
+  box-shadow: var(--shadow-36);
 }
