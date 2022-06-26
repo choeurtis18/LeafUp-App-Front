@@ -4,13 +4,13 @@
   --color-text-10: #e6e8eb;
   --color-text-20: #d1d5d9;
   --color-text-30: #b8bfc4;
-  --color-text-40: #9ea7ad;
-  --color-text-50: #808991;
-  --color-text-60: #636c73;
-  --color-text-70: #525a61;
-  --color-text-80: #40474d;
-  --color-text-90: #303538;
-  --color-text-100: #212529;
+  --color-text-40: #808991;
+  --color-text-50: #636c73;
+  --color-text-60: #525a61;
+  --color-text-70: #40474d;
+  --color-text-80: #303538;
+  --color-text-90: #212529;
+  --color-text-100: #000000;
 
   --primary_color_1: #3B4A34;
   --primary_color_2: #112703;
@@ -31,6 +31,12 @@
   --shadow-41: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
 .App {
   display: flex;
   background-color: var(--secondary_color_2);
@@ -38,65 +44,57 @@
 
 
 /*Nav Bar*/
-@media screen and (max-width: 480px) {
-  .navbar li{
-    width: 150px;
-  }
-}
-@media screen and (max-width: 768px) {
-  header {
-    display: none;
-  }
-  .hamburger-react {
-    display: block!important;
-  }
-  .navbar {
-    order: 2;
-  }
-}
-.navbar {
+.desktop-navbar {
   background-color: var(--secondary_color_1);
 }
-.hamburger-react {
+@media screen and (max-width: 480px) {
+  .desktop-navbar {
+    display: none;
+  }
+}
+.desktop-navbar-closebtn {
   display: none;
 }
-.navbar li {
+.desktop-navbar li {
   display: flex;
   text-decoration: none;
   list-style-type: none;
 
+  margin: 24px 0;
   padding: 16px;
+  font-size: 18px;
 }
-.navbar li.hide {
+.desktop-navbar li a{
+  color: var(--secondary_color_100);
+}
+.desktop-navbar li.hide {
   display: none;
 }
-.navbar li:hover {
+.desktop-navbar li:hover {
   color: var(--secondary_color_1);
   background-color: var(--primary_color_1);
 }
-.navbar li .img_white {
+.desktop-navbar li .img_logo_white {
   display: none;
 }
-.navbar li .img_green {
+.desktop-navbar li .img_logo_green {
   display: block;
 }
-.navbar li.active {
+
+.desktop-navbar li.active {
   color: var(--secondary_color_1);
   background-color: var(--primary_color_1);
 }
-.navbar li.active .img_green {
+.desktop-navbar li.active .img_logo_green {
   display: none;
 }
-.navbar li.active .img_white {
+.desktop-navbar li.active .img_logo_white {
   display: block;
 }
-.navbar li img {
+.desktop-navbar li img {
   width: 25px;
   height: 25px;
-  margin: 0 10px 0 0;
+  margin: 0 8px 0 0;
 }
 /*End Nav Bar*/
 
-.container {
-  width: 100%;
-}
