@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function ParametrePage() {
   return (
+
     <div>
         <ul className='w-11/12 mx-auto lg:w-2/3'>
           <h1 className='text-[#3B4A34] text-3xl font-bold mb-[29px]'>Paramètres</h1>
@@ -43,6 +44,7 @@ export default function ParametrePage() {
             </div>
           </div>
         </ul>
+
     </div>
   )
 

@@ -24,4 +24,98 @@ code {
     monospace;
 }
 
+header {
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+}
 
+header .header-logo-container {
+  display: flex;
+}
+header .header-logo-container p {
+  margin: auto 7px auto 0px;
+  font-size: 30px;
+  font-weight: bold;
+
+  font-family: cursive;
+  color: var(--primary_color_2);
+}
+header .header-logo-container img {
+  width: 25px;
+  height: 25px;
+  margin: auto 0;
+}
+
+@media screen and (min-width: 481px) {
+  .header-container {
+    display: none!important;
+  }
+}
+header .header-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto 0;
+}
+header .header-container svg {
+  padding: 0 8px;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 480px) {
+  .desktop-navbar-closebtn {
+    display: block!important;
+    z-index: 3;
+  }
+  .desktop-navbar.mobile {
+    position: fixed;
+    display: block!important;
+    z-index: 1;
+
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+
+    background-color: var(--color-text-1);
+    transition: 0.3s;
+  }
+
+  .desktop-navbar.mobile li {
+    position: relative;
+    justify-content: center;
+    width: 100%;
+    
+    padding: 16px 0;
+    margin-top: 30px;
+    background-color: unset;
+  }
+  .desktop-navbar.mobile li.active{
+    background-color: unset;
+  }
+
+  .desktop-navbar.mobile li img{
+    display: none;
+  }
+  .desktop-navbar.mobile li.active img{
+    display: none;
+  }
+  .desktop-navbar.mobile li a{
+    text-decoration: none;
+    display: block;
+    font-size: 24px;
+    color: var(--color-text-100);
+    transition: 0.3s;
+  }
+  
+  .desktop-navbar.mobile li a:hover, .desktop-navbar.mobile li a:focus {
+    font-weight: bold;
+  }
+  
+  .desktop-navbar.mobile .desktop-navbar-closebtn {
+    position: absolute;
+    right: 45px;
+    font-size: 50px;
+  }
+}
