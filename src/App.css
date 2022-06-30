@@ -31,12 +31,4 @@
   --shadow-41: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
 }
 
-.App {
-  text-align: center;
-  background-color: var(--secondary_color_2);
-}
 
-.navbar {
-  background-color: var(--secondary_color_1);
-  box-shadow: var(--shadow-36);
-}
