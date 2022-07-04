@@ -18,7 +18,7 @@ export default function ParametrePage() {
             </div>
             <div className='flex justify-between mb-[12px]'>
               <li>Email</li>
-              <li>prenon@mail.com</li>
+              <li>prenom@mail.com</li>
             </div>
             <div className='flex justify-between mb-[12px]'>
               <li>Description du Profil</li>
