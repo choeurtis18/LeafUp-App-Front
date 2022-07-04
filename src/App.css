@@ -1,3 +1,5 @@
+
+
 :root {
   --color-text-1: #ffffff;
   --color-text-5: #f2f4f5;
@@ -35,6 +37,7 @@
   margin: 0;
   padding: 0;
   text-decoration: none;
+  font-family: "Inter";
 }
 
 .App {
