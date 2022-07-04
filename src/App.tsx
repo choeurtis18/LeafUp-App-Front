@@ -11,6 +11,7 @@ import ParametrePage from './Pages/ParametrePage';
 import PlantePage from './Pages/PlantePage';
 import ProfilPage from './Pages/ProfilPage';
 import TrickAndTipsPage from './Pages/TrickAndTipsPage';
+import Post from './Pages/Post';
 
 function App() {
   const navActive = (event: { target: any; }) => {
@@ -64,6 +65,7 @@ function App() {
           <Route path="/" element={<HomePage/>} />
           <Route path="/maplante" element={<PlantePage/>} />
           <Route path="/tricksandtips" element={<TrickAndTipsPage/>} />
+          <Route path='/tricksandtips/:id' element={<Post/>}></Route>
           <Route path="/profil" element={<ProfilPage/>} />
           <Route path="/parametre" element={<ParametrePage/>} />
           <Route path="*" element={<NotFound/>} />
