@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 
-import logo_green from './Asset/logo_green.svg';
+// import logo_green from './Asset/logo_green.svg';
 import logo_header from './Asset/logo-header.svg';
 //npm i --save @fortawesome/react-fontawesome@latest
 
@@ -39,7 +39,7 @@ root.render(
   <React.StrictMode>
   <header>
     <div className='header-logo-container'>
-      <img src={logo_header}/>
+      <img src={logo_header} alt={logo_header}/>
     </div>
     <div className='header-container'>
       <FontAwesomeIcon icon={faSignOutAlt} className='header-container-sign-icon flex' />
