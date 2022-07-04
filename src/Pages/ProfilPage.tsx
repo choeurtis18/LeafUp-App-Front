@@ -8,9 +8,6 @@ import background from "../Asset/backgroundHeader.jpg";
 
 export default function ProfilPage() {
   
-  for(let i = 0; i < 5; ++i){
-      
-  }
   return (
     <div className='container'>
       <Header
