@@ -22,6 +22,7 @@ function App() {
       var nav_element = event.target.closest('li');
       if(nav_element) {  
         nav_element.classList.add('active');
+        //event.target.closest('.desktop-navbar').classList.remove('mobile');
       }
     }
   }
