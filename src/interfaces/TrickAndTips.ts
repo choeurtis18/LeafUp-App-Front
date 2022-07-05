@@ -3,4 +3,7 @@ export interface TrickAndTipsData {
     id: number;
     title: string;
     body: string;
+    niveau: string;
+    date: string;
+    note: string;
 }
