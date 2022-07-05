@@ -18,12 +18,12 @@ const ContainerCards: React.FC<TrickAndTipsProps> = ({allPosts}) => {
                 <div className="rounded overflow-hidden shadow-lg" key={post.id}>
                 
                 <div className="px-6 py-4">
-                    <Note />
+                    <Note note={post.note}/>
                 </div>
                 <div className="px-6 py-4">
                     <div className="font-bold text-xl mb-2">{post.title}</div>
                     <p className="text-gray-700 text-base">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+                    {post.body}
                     </p>
                 </div>
                 <div className="px-6 pb-2">
@@ -35,7 +35,7 @@ const ContainerCards: React.FC<TrickAndTipsProps> = ({allPosts}) => {
                 <div className="px-6  pb-2">
                     <p className="mt-3 text-gray-600 text-sm md:text-base nivdate">
                         <span>Pour niveau</span>
-                        <span>23-07-2022</span>
+                        <span>{post.date}</span>
                     </p>
                 </div>
 

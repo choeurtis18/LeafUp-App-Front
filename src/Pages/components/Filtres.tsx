@@ -1,8 +1,13 @@
 
 
 export function Filtres({allPosts, setAllPosts}:any){
+    const d = new Date();
+
     const updateList = (type:any) => {
+        console.log(allPosts);
         console.log(type);
+        console.log('----');
+        //console.log(allPosts.filter(post => new Date(post.date) - new Date() > 0));
     }
     return (
         <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">

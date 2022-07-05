@@ -8,15 +8,12 @@ import { TrickAndTipsData } from '../../interfaces';
 import '../../Styles/style.css'
 
 
-type PostParams = {
-    id: string;
- };
+export function Note({note}:any){
 
-const Note = () => {
   return (
     <div className='Note'>
         <button className='button-note'><FaArrowUp color='#6E8464' /></button>
-        <p className='p-note'>25</p>
+        <p className='p-note'>{note}</p>
         <button className='button-note'><FaArrowDown color='#6E8464'/></button>
     </div>
   )
