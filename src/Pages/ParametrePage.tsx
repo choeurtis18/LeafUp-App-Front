@@ -33,7 +33,7 @@ export default function ParametrePage() {
             </div>
             <div className='flex justify-between mb-[12px]'>
               <li>Type de plante</li>
-              <li>Fittonia</li>
+              <li>Gerianium</li>
             </div>
             <div className='flex justify-between mb-[12px]'>
               <li>Notifications d'arrosage</li>

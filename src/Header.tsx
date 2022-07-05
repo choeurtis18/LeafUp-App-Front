@@ -15,8 +15,8 @@ export default function Header(props: any) {
             </div>
             <div className="ml-4 lg:ml-10 text-[#808080] mt-8">
                 <p>i {props.description}</p>
-                <p>i Actress</p>
-                <p>i Contact me :j.lawrence@gmail.com</p>
+                <p>i Personnalité publique</p>
+                <p>i Contact me :golozer91@gmail.com</p>
             </div>
             <div className="w-full lg:w-[95%] h-[2px] mx-auto bg-[#6E8464] mt-4"></div>
         </div>
