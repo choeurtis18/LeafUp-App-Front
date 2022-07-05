@@ -11,6 +11,8 @@ import ParametrePage from './Pages/ParametrePage';
 import PlantePage from './Pages/PlantePage';
 import ProfilPage from './Pages/ProfilPage';
 import TrickAndTipsPage from './Pages/TrickAndTipsPage';
+import SignUpPage from './Pages/SignUpPage';
+import SignInPage from './Pages/SignInPage';
 import Post from './Pages/Post';
 
 function App() {
@@ -68,6 +70,8 @@ function App() {
           <Route path='/tricksandtips/:id' element={<Post/>}></Route>
           <Route path="/profil" element={<ProfilPage/>} />
           <Route path="/parametre" element={<ParametrePage/>} />
+          <Route path="/inscription" element={<SignUpPage/>} />
+          <Route path="/connexion" element={<SignInPage/>} />
           <Route path="*" element={<NotFound/>} />
         </Routes>
       </BrowserRouter>
