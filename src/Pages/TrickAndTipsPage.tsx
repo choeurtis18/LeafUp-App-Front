@@ -3,6 +3,7 @@ import { TrickAndTipsData } from '../interfaces';
 import '../Styles/style.css'
 import Cards from './components/Cards';
 import ContainerCards from './components/ContainerCards';
+import ContainerCardsBis from './components/ContainerCardsBis';
 import Filtres from './components/Filtres';
 
 
@@ -25,7 +26,25 @@ const TrickAndTipsPage: React.FC = () => {
         <p>Fait par la communauté</p>
       </div>
       <Filtres setAllPosts={setAllPosts} allPosts={allPosts} />
-      <ContainerCards allPosts={allPosts} />
+      {/* <ContainerCards allPosts={allPosts} /> */}
+      <ContainerCardsBis 
+         post_title = "Comment prendre soin de ses plantes ?"
+         post_content = "Dans ce Post vous trouverez tous les conseils nécessaires pour vous aider à garder vos plantes en vie. "
+         post_author = "J. Lawrence"
+         post_niveau='Debutants'
+         post_date="12/11/2010"
+         post_note="23"
+         post_url = "tricksandtips/11"
+         />
+          <ContainerCardsBis 
+         post_title = "Comment prendre soin de ses plantes ?"
+         post_content = "Dans ce Post vous trouverez tous les conseils nécessaires pour vous aider à garder vos plantes en vie. "
+         post_author = "J. Lawrence"
+         post_niveau='Experts'
+         post_date="21/09/2021"
+         post_note="12"
+         post_url = "tricksandtips/11"
+         />
       <div className='circleDown'></div>
     </div>
   )
