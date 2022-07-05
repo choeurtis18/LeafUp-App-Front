@@ -62,7 +62,7 @@ header .header-container svg {
   .desktop-navbar.mobile {
     position: fixed;
     display: block!important;
-    z-index: 1;
+    z-index: 999;
 
     height: 100%;
     width: 100%;

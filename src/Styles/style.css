@@ -1,23 +1,4 @@
-@media screen and (max-width: 600px) {
-    .text-lg {
-        font-size: 0.85rem;
-        line-height: 1rem;
-    }
-    .px-2 {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
 
-    .text-xl {
-        font-size: 0.95rem;
-        line-height: 1rem;
-        MARGIN-BOTTOM: 10px;
-    }
-
-   
-
-  
-  }
 
 .rounded{
     border-radius: 1rem;
@@ -139,13 +120,13 @@
     display: block;
   }
   
-  /* Change color of dropdown links on hover */
   .dropdown-content a:hover {background-color: #ddd;}
   
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {display: block;}
+  .dropdown:hover .dropdown-content {
+    display: block;
+  z-index: 99;
+}
   
-  /* Change the background color of the dropdown button when the dropdown content is shown */
   .dropdown:hover .dropbtn {background-color: #3e8e41;}
 
   .note{
@@ -162,13 +143,64 @@
 
 
 .circleUp{
+<<<<<<< Updated upstream
  
 }
 
 .post-container{
   overflow: hidden;
+=======
+  width: 443px;
+  height: 438px;
+  background: rgba(17,39,3,1);
+  opacity: 1;
+  position: fixed;
+  right: -200px;
+  border-radius: 50%;
+  box-shadow: -2px 4px 10px rgba(0, 0, 0, 0.25);
+>>>>>>> Stashed changes
 }
 
+.circleDown{
+  width: 443px;
+  height: 438px;
+  background: rgba(17,39,3,1);
+  opacity: 1;
+  position: fixed;
+  left: -90px;
+  bottom: -20px;
+  border-radius: 50%;
+  box-shadow: -2px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+
 .Cards{
+<<<<<<< Updated upstream
   max-width: 1250px;
+=======
+  max-width: 1195px;
+}
+
+@media screen and (max-width: 600px) {
+  .text-lg {
+      font-size: 0.85rem;
+      line-height: 1rem;
+  }
+  .px-2 {
+      padding-left: 1rem;
+      padding-right: 1rem;
+  }
+
+  .text-xl {
+      font-size: 0.95rem;
+      line-height: 1rem;
+      MARGIN-BOTTOM: 10px;
+  }
+
+  .circleDown,.circleUp{
+    width: 250px;
+    height: 250px;
+  }
+
+>>>>>>> Stashed changes
 }

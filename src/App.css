@@ -49,6 +49,7 @@
 /*Nav Bar*/
 .desktop-navbar {
   background-color: var(--secondary_color_1);
+  z-index: 20;
 }
 @media screen and (max-width: 480px) {
   .desktop-navbar {

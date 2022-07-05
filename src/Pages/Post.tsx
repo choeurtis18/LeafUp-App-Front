@@ -23,11 +23,7 @@ type PostParams = {
         getPost();
     }, [id]);
   return (
-    <div className=''>
-        <div className='header'>
-        <h1>Tricks & Trips</h1>
-        <p>Fait par la communauté</p>
-      </div>
+    <div className=''>       
       <PostDetail onePost={onePost} />
     </div>
   )
