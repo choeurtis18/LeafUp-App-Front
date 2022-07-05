@@ -30,27 +30,27 @@ export default function ProfilPage() {
           post_title = "Comment prendre soin de ses plantes ?"
           post_content = "Dans ce Post vous trouverez tous les conseils nécessaires pour vous aider à garder vos plantes en vie. "
           post_author = "J. Lawrence"
-          post_url = "post/11"
+          post_url = "tricksandtips/11"
         />
                 <Posts 
           post_title = "Comment prendre soin de ses plantes ?"
           post_content = "Dans ce Post vous trouverez tous les conseils nécessaires pour vous aider à garder vos plantes en vie. "
           post_author = "J. Lawrence"
-          post_url = "post/11"
+          post_url = "tricksandtips/11"
         />
         
         <Posts 
           post_title = "Comment prendre soin de ses plantes ?"
           post_content = "Dans ce Post vous trouverez tous les conseils nécessaires pour vous aider à garder vos plantes en vie. "
           post_author = "J. Lawrence"
-          post_url = "post/11"
+          post_url = "tricksandtips/11"
         />
         
         <Posts 
           post_title = "Comment prendre soin de ses plantes ?"
           post_content = "Dans ce Post vous trouverez tous les conseils nécessaires pour vous aider à garder vos plantes en vie. "
           post_author = "J. Lawrence"
-          post_url = "post/11"
+          post_url = "tricksandtips/11"
         />
         
         
