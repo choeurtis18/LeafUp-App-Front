@@ -25,7 +25,10 @@ function App() {
       var nav_element = event.target.closest('li');
       if(nav_element) {  
         nav_element.classList.add('active');
-        //event.target.closest('.desktop-navbar').classList.remove('mobile');
+        var nav_bar = event.target.closest('.desktop-navbar');
+        setTimeout(function() {
+          nav_bar.classList.remove('mobile');
+        }, 300);
       }
     }
   }
@@ -35,6 +38,7 @@ function App() {
     <div className="App">
       <BrowserRouter>      
         <nav className="desktop-navbar">
+          <div>
           <a className="desktop-navbar-closebtn">&times;</a>
           <li>
             <img className="img_logo_green" src={logo_green} />
@@ -44,7 +48,7 @@ function App() {
           <li>
             <img className="img_logo_green" src={logo_green} />
             <img className="img_logo_white" src={logo_white} />
-            <NavLink to="/maplante" className="desktop-nav-link">Ma plante</NavLink>
+            <NavLink to="/maplante" className="desktop-nav-link">Ma Plante</NavLink>
           </li>
           <li>
             <img className="img_logo_green" src={logo_green} />
@@ -59,9 +63,11 @@ function App() {
           <li>
             <img className="img_logo_green" src={logo_green} />
             <img className="img_logo_white" src={logo_white} />
-            <NavLink to="/parametre" className="desktop-nav-link">Parametre</NavLink>
+            <NavLink to="/parametre" className="desktop-nav-link">Paramètres</NavLink>
           </li>	
+          </div>
         </nav>
+            
 
         <Routes>
           <Route path="/" element={<HomePage/>} />

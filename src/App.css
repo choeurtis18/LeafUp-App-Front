@@ -48,9 +48,14 @@
 /*Nav Bar*/
 .desktop-navbar {
   background-color: var(--secondary_color_1);
+  z-index: 15;
+}
+.desktop-navbar div {
+  position: sticky;
+  top: 0;
 }
 @media screen and (max-width: 480px) {
-  .desktop-navbar {
+  .desktop-navbar div{
     display: none;
   }
 }

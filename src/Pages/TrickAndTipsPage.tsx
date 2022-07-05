@@ -24,7 +24,7 @@ const TrickAndTipsPage: React.FC = () => {
         <h1>Tricks & Trips</h1>
         <p>Fait par la communauté</p>
       </div>
-      <Filtres />
+      <Filtres setAllPosts={setAllPosts} allPosts={allPosts} />
       <ContainerCards allPosts={allPosts} />
       <div className='circleDown'></div>
     </div>

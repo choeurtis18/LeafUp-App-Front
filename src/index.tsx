@@ -10,9 +10,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 
 import logo_green from './Asset/logo_green.svg';
-//npm i --save @fortawesome/react-fontawesome@latest
 
-//https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_overlay
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../Header';
 import Posts from '../Posts';
-import profil from '../Asset/jennifer.jpeg';
+import profil from '../Asset/Ritchie.jpg';
 import iconpost from '../Asset/iconpost.png'
 import likepost from '../Asset/likepost.png'
 import background from "../Asset/backgroundHeader.jpg";
@@ -13,9 +13,9 @@ export default function ProfilPage() {
       <Header
        IMGprofil = {profil}
        cover = {background}
-       full_name = "Jennifer Lawrence"
-       plant_name = "FITTONIA"
-       description = "United States"
+       full_name = "Ritchie"
+       plant_name = "Gerianium"
+       description = "France - Grigny La Grande Borne"
       />
       <div className="flex justify-center gap-8 mb-4">
         <div className="w-1/2 lg:w-1/4 bg-white lg:px-24 py-2 shadow-md">

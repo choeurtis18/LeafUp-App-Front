@@ -1,11 +1,14 @@
 
 
-export function Filtres(){
+export function Filtres({allPosts, setAllPosts}:any){
+    const updateList = (type:any) => {
+        console.log(type);
+    }
     return (
         <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
             <div className="wrap">
-            <button className="buttonTrickAndTips">Date</button>
-            <button className="buttonTrickAndTips">Note</button>
+            <button onClick={() => updateList("Date")} className="buttonTrickAndTips">Date</button>
+            <button onClick={() => updateList("Note")} className="buttonTrickAndTips">Note</button>
             <div className="dropdown">
                 <button className="buttonTrickAndTips">Niveau</button>
                 <div className="dropdown-content">
