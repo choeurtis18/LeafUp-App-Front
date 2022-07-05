@@ -1,0 +1,55 @@
+.container{
+    font-family: 'Inter',sans-serif;
+}
+
+.container-title{
+    font-family: 'Poppins',sans-serif;
+    font-weight: 700;
+}
+
+.parametre-type{
+    font-weight: 500;
+    letter-spacing: -0.017em;
+    line-height: 22px;
+}
+.parametre-value{
+    font-weight: 700;
+    letter-spacing: -0.017em;
+    line-height: 36px;
+}
+
+.plant-name{
+    font-family: 'Inter',sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.017em;
+}
+
+.plant-type{
+    font-family: 'Inter',sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.017em;
+}
+
+@media (max-width:1030px) and (min-width:1000px){
+    
+    .plante-image{
+        height: 110%;
+        width: 85%;
+    }
+
+}
+
+@media (max-width:648px){
+    .plant-type{
+        font-weight: 600;
+    }
+}
+
+.rotate-plant{
+    margin-top: 70px;
+    transform: rotate(-90deg) translateY(-19vw);
+}
+
+.bg-rounded-green{
+    
+}
