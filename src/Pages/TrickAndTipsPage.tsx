@@ -61,7 +61,7 @@ var post_list = [
       "date": "2012-08-01",
       "note": "7",
   },
-  {
+  { 
       "userId": 1,
       "id": 7,
       "title": "magnam facilis autem",
