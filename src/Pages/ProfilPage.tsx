@@ -25,34 +25,46 @@ export default function ProfilPage() {
           <img className="mx-auto" src={likepost} alt={likepost} />
         </div>
       </div>
-      <div className="grid lg:grid-cols-3 gap-4">
+      <a href="" className="w-full flex justify-center my-8">
+        <button className="rounded-xl lg:w-3/12 w-2/3 p-[13px] bg-[#112703] text-white text-center">Ajouter un Post</button>
+      </a>
+      <div className="grid lg:grid-cols-3">
         <Posts 
           post_title = "Comment prendre soin de ses plantes ?"
           post_content = "Dans ce Post vous trouverez tous les conseils nécessaires pour vous aider à garder vos plantes en vie. "
           post_author = "J. Lawrence"
           post_url = "tricksandtips/11"
+          role = "Expert"
+          date = "06/07/2022"
         />
-                <Posts 
-          post_title = "Comment prendre soin de ses plantes ?"
-          post_content = "Dans ce Post vous trouverez tous les conseils nécessaires pour vous aider à garder vos plantes en vie. "
-          post_author = "J. Lawrence"
-          post_url = "tricksandtips/11"
-        />
-        
+      
         <Posts 
           post_title = "Comment prendre soin de ses plantes ?"
           post_content = "Dans ce Post vous trouverez tous les conseils nécessaires pour vous aider à garder vos plantes en vie. "
           post_author = "J. Lawrence"
           post_url = "tricksandtips/11"
+          role = "Expert"
+          date = "06/07/22"
         />
-        
+      
         <Posts 
           post_title = "Comment prendre soin de ses plantes ?"
           post_content = "Dans ce Post vous trouverez tous les conseils nécessaires pour vous aider à garder vos plantes en vie. "
           post_author = "J. Lawrence"
           post_url = "tricksandtips/11"
+          role = "Expert"
+          date = "06/07/22"
         />
-        
+      
+        <Posts 
+          post_title = "Comment prendre soin de ses plantes ?"
+          post_content = "Dans ce Post vous trouverez tous les conseils nécessaires pour vous aider à garder vos plantes en vie. "
+          post_author = "J. Lawrence"
+          post_url = "tricksandtips/11"
+          role = "Expert"
+          date = "06/07/22"
+        />
+      
         
       </div>
       
