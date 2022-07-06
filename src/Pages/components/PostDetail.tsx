@@ -1,5 +1,7 @@
 import { TrickAndTipsData } from '../../interfaces';
 import React, { useState, useEffect, useRef } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FaHeart } from 'react-icons/fa';
 import '../../Styles/style.css'
 import GifPlant from '../../Asset/plant.gif'
 import Card from '../../Components/Card';
@@ -28,6 +30,7 @@ const PostDetail: React.FC<PostDetaiProps> = ({onePost}) => {
            <div className='header'>
                 <h1>{onePost?.title}</h1>
                 <p>date</p>
+                <button className='button-fav'><FaHeart  /></button>
             </div>
             <div className='image'>
             <div className='container mx-auto px-4'>
