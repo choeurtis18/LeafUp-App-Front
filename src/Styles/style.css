@@ -142,6 +142,11 @@
     padding: 3px;
   }
 
+  .button-fav{
+    float: right;
+    padding-right: 10%;
+  }
+
   .post-container {
     position: relative;
     overflow: hidden;
