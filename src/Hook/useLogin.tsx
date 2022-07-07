@@ -1,9 +1,9 @@
 import {User} from "../interfaces/User";
 import axios from "axios";
 
-export default function useGetUser(user_id: number) {
+export default function useLogin() {
     return (): Promise<User> => {
-        return axios.get('http://127.0.0.1:8000/api/users/id='+{user_id})
+        return axios.get('http://localhost:2345/login.php')
             .then(res => res.data)
     }
 }

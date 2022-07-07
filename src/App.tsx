@@ -7,9 +7,13 @@ import logo_white from './Asset/logo_white.svg';
 import useGetPostList from './Hook/useGetPostList';
 import useGetPlant from './Hook/useGetPlant';
 import useGetUser_plants from './Hook/useGetUser_plants';
-import useGetUser from './Hook/useGetUser';
+import useGetUserList from './Hook/useGetUserList';
 import useGetSpecies from './Hook/useGetSpecies';
 import useGetUserPlant from './Hook/useGetUserPlant';
+import useGetUser from './Hook/useGetUser';
+import useGetUserPostList from './Hook/useGetUserPostList';
+import useLogin from './Hook/useLogin';
+import useRegister from './Hook/useRegister';
 
 import { TrickAndTipsData } from './interfaces';
 import { User } from './interfaces/User';
@@ -53,15 +57,19 @@ function App() {
   const [allUser_plants,setAllUser_plants] = useState<User_plants[]>([]);
   const [allPlante,setAllPlante] = useState<Plante[]>([]);
   const [allSpecies,setAllSpecies] = useState<Species[]>([]);
+  const [user,setUser] = useState<User>();
   const [plante,setPlante] = useState<Plante>();
   const [specie,setSpecie] = useState<Species>();
-
+  const [user_posts,setUser_posts] = useState<TrickAndTipsData[]>();
+  
   const getPostList = useGetPostList();
   const getPlantList = useGetPlant();
   const getUser_plants = useGetUser_plants();
-  const getUser = useGetUser();
+  const getUserList = useGetUserList();
   const getSpecies = useGetSpecies();
   const getUserPlan = useGetUserPlant(user_id);
+  const getUser = useGetUser(user_id);
+  const getUserPostList= useGetUserPostList(user_id);
   
   useEffect(() => {
     getPostList().then(data => {
@@ -76,7 +84,7 @@ function App() {
       setAllUser_plants(data)
     })
 
-    getUser().then(data => {
+    getUserList().then(data => {
       setAllUsers(data)
     })
 
@@ -91,6 +99,14 @@ function App() {
           setSpecie(element);
         }
       });
+    })
+
+    getUser().then(data => {
+      setUser(data)
+    })
+
+    getUserPostList().then(data => {
+      setUser_posts(data)
     })
     
   }, [])
