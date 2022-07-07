@@ -1,9 +1,9 @@
 export interface TrickAndTipsData {
-    userId: number;
     id: number;
     title: string;
-    body: string;
-    niveau: string;
-    date: string;
-    note: string;
+    content: string;
+    date: number;
+    userId: number;
+    nb_likes: number;
+    img: string;
 }
