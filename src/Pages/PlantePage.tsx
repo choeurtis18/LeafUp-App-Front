@@ -4,14 +4,28 @@ import CurrentPLant from '../Asset/plante.png';
 import LogoIcon from'../Asset/icon-logo.svg';
 import '../Asset/css/plantepage.css';
 
-export default function PlantePage(props:any) {
+import { Plante } from '../interfaces/Plante';
+import { Species } from '../interfaces/Species';
 
-  const plante = {
-    name:'André',
-    type :'Gerianium',
-    image: CurrentPLant,
-  }
-  
+export default function PlantePage(props:any) {
+  var plante: Plante;
+  var species: Species;
+
+  props.allPlante.forEach((element: Plante) => {
+    for(var id=0; id < props.allUser_plants.length; id++) {
+      if((props.allUser_plants[id].user_id == props.user_id) &&
+        (props.allUser_plants[id].plant_id == element.id)
+      ) {
+        plante = element;
+      }
+    }
+  });
+  props.allSpecies.forEach((element: Species) => {
+    if(element.id == plante.species_id) {
+      species = element;
+    }
+  });
+
   return (
     <div className='container sm:px-24 sm:py-12 p-6 bg-[#F6F6F6]'>
       <h1 className='container-title text-3xl	text-primary-color-1 mb-12 hidden sm:block'>DashBoard</h1>
@@ -59,14 +73,14 @@ export default function PlantePage(props:any) {
 
           <img 
           className='row-span-2 w-[70%] justify-self-center plante-image' 
-          src={plante.image} 
-          alt={plante.image} 
+          src={CurrentPLant} 
+          alt={CurrentPLant} 
           />
 
           <div className="bg-white rounded-2xl w-100 p-6 sm:flex flex-row justify-between items-center drop-shadow-lg">
             <div className='flex flex-col gap-4'>
-              <h3 className='text-base plant-name'>{plante.name}</h3>
-              <p className='plant-type text-xs'>{plante.type}</p>
+              <h3 className='text-base plant-name'>az</h3>
+              <p className='plant-type text-xs'>az</p>
             </div>
             <img src={LogoIcon} alt={LogoIcon} />
           </div>
@@ -74,13 +88,13 @@ export default function PlantePage(props:any) {
 
         <div className="sm:hidden grid grid-cols-2 gap-y-5">
           <div className="grid grid-rows-2 gap-y-5 mb-[270px]">
-            <h1 className='text-3xl plant-name'>{plante.name}</h1>
+            <h1 className='text-3xl plant-name'>az</h1>
             <span className='relative mt-5'>
-            <h2 className='absolute top-0 left-0 text-xl plant-type text-[#6E8464] uppercase !tracking-[0.4em] rotate-plant'>{plante.type}</h2>
+            <h2 className='absolute top-0 left-0 text-xl plant-type text-[#6E8464] uppercase !tracking-[0.4em] rotate-plant'>az</h2>
             </span>
           </div>
           <div className='flex justify-center items-center bg-rounded-green'>
-            <img className='max-w-[150%] h-100' src={plante.image} alt={plante.image} />
+            <img className='max-w-[150%] h-100' src={CurrentPLant} alt={CurrentPLant} />
           </div>
         </div>
       </div>

@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 
 import logo_green from './Asset/logo_green.svg';
 import logo_white from './Asset/logo_white.svg';
+
+import useGetPostList from './Hook/useGetPostList';
+import useGetPlant from './Hook/useGetPlant';
+import useGetUser_plants from './Hook/useGetUser_plants';
+import useGetUser from './Hook/useGetUser';
+import useGetSpecies from './Hook/useGetSpecies';
+
+import { TrickAndTipsData } from './interfaces';
+import { User } from './interfaces/User';
+import { User_plants } from './interfaces/User_plants';
+import { Plante } from './interfaces/Plante';
+import { Species } from './interfaces/Species';
 
 import './App.css';
 import HomePage from './Pages/HomePage';
@@ -33,7 +45,44 @@ function App() {
     }
   }
   document.addEventListener('mousedown', navActive, false);
+  
+  const user_id = 1;
+  const [allPosts,setAllPosts] = useState<TrickAndTipsData[]>([]);
+  const [allUsers,setAllUsers] = useState<User[]>([]);
+  const [allUser_plants,setAllUser_plants] = useState<User_plants[]>([]);
+  const [allPlante,setAllPlante] = useState<Plante[]>([]);
+  const [allSpecies,setAllSpecies] = useState<Species[]>([]);
 
+  const getPostList = useGetPostList();
+  const getPlantList = useGetPlant();
+  const getUser_plants = useGetUser_plants();
+  const getUser = useGetUser();
+  const getSpecies = useGetSpecies();
+  
+  useEffect(() => {
+    getPostList().then(data => {
+      setAllPosts(data)
+    })
+
+    getPlantList().then(data => {
+      setAllPlante(data)
+    })
+
+    getUser_plants().then(data => {
+      setAllUser_plants(data)
+    })
+
+    getUser().then(data => {
+      setAllUsers(data)
+    })
+
+    getSpecies().then(data => {
+      setAllSpecies(data)
+    })
+
+    
+  }, [])
+  
   return (
     <div className="App">
       <BrowserRouter>      
@@ -71,8 +120,8 @@ function App() {
 
         <Routes>
           <Route path="/" element={<HomePage/>} />
-          <Route path="/maplante" element={<PlantePage/>} />
-          <Route path="/tricksandtips" element={<TrickAndTipsPage/>} />
+          <Route path="/maplante" element={<PlantePage allSpecies={allSpecies} user_id={user_id} allPlante={allPlante} allUser_plants={allUser_plants}/>} />
+          <Route path="/tricksandtips" element={<TrickAndTipsPage allPosts={allPosts}/>} />
           <Route path='/tricksandtips/:id' element={<Post/>}></Route>
           <Route path="/profil" element={<ProfilPage/>} />
           <Route path="/parametre" element={<ParametrePage/>} />
