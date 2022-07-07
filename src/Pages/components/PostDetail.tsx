@@ -1,4 +1,5 @@
-import { TrickAndTipsData } from '../../interfaces';
+import { TrickAndTipsData } from '../../interfaces/TrickAndTips';
+import {Comments} from '../../interfaces/Comments'
 import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FaHeart } from 'react-icons/fa';
@@ -6,11 +7,12 @@ import '../../Styles/style.css'
 import GifPlant from '../../Asset/plant.gif'
 import Card from '../../Components/Card';
 
-interface PostDetaiProps {
+interface PostDetailProps {
     onePost : TrickAndTipsData | null ;
+    comments : Comments | null ;
 }
 
-const PostDetail: React.FC<PostDetaiProps> = ({onePost}) => {
+const PostDetail: React.FC<PostDetailProps> = ({onePost,comments}) => {
 
     const textareaRef = useRef<HTMLTextAreaElement | null>(null);
     const [value, setValue] = useState<String>();

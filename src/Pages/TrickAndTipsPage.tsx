@@ -15,7 +15,6 @@ interface TrickAndTipsPageProps {
 
 const TrickAndTipsPage: React.FC<TrickAndTipsPageProps> = ({allPosts}) => {
 
-    console.log(allPosts);
   return (
     <div className='post-container'>
       <div className='circleUp'></div>
