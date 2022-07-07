@@ -6,4 +6,4 @@ export default function useGetRecordPosts() {
         return axios.get('http://127.0.0.1:8000/api/recordposts/')
             .then(res => res.data)
     }
-}
+}   
