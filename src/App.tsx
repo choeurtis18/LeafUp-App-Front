@@ -14,12 +14,18 @@ import useGetUser from './Hook/useGetUser';
 import useGetUserPostList from './Hook/useGetUserPostList';
 import useLogin from './Hook/useLogin';
 import useRegister from './Hook/useRegister';
+import useGetRecordPosts from './Hook/useGetRecordPosts';
+import useGetPostLikes from './Hook/useGetPostLikes';
+import useGetImgUsers from './Hook/useGetImgUsers';
 
 import { TrickAndTipsData } from './interfaces';
 import { User } from './interfaces/User';
 import { User_plants } from './interfaces/User_plants';
 import { Plante } from './interfaces/Plante';
 import { Species } from './interfaces/Species';
+import { Comments } from './interfaces/Comments';
+import { PostLikes } from './interfaces/PostLikes';
+import { ImgUsers } from './interfaces/ImgUsers';
 
 import './App.css';
 import HomePage from './Pages/HomePage';
@@ -31,6 +37,8 @@ import TrickAndTipsPage from './Pages/TrickAndTipsPage';
 import SignUpPage from './Pages/SignUpPage';
 import SignInPage from './Pages/SignInPage';
 import Post from './Pages/Post';
+import useGetComments from './Hook/useGetComments';
+import { RecordPosts } from './interfaces/RecordPosts';
 
 function App() {
   const navActive = (event: { target: any; }) => {
@@ -62,6 +70,11 @@ function App() {
   const [specie,setSpecie] = useState<Species>();
   const [user_posts,setUser_posts] = useState<TrickAndTipsData[]>();
   
+  const [allComments,setAllComments] = useState<Comments[]>([]);
+  const [allPostLikes,setAllPostLikes] = useState<PostLikes[]>([]);
+  const [allRecordPosts, setAllRecordPosts] = useState<RecordPosts[]>([]);
+  const [allImgUsers, setAllImgUsers] = useState<ImgUsers[]>([]);
+
   const getPostList = useGetPostList();
   const getPlantList = useGetPlant();
   const getUser_plants = useGetUser_plants();
@@ -71,6 +84,11 @@ function App() {
   const getUser = useGetUser(user_id);
   const getUserPostList= useGetUserPostList(user_id);
   
+  const getComments= useGetComments();
+  const getPostLikes= useGetPostLikes();
+  const getRecordPosts= useGetRecordPosts();
+  const getImgUsers= useGetImgUsers();
+
   useEffect(() => {
     getPostList().then(data => {
       setAllPosts(data)
@@ -108,7 +126,15 @@ function App() {
     getUserPostList().then(data => {
       setUser_posts(data)
     })
+
+    getComments().then(data => {
+      setAllComments(data)
+    })
     
+    getPostLikes().then(data => {
+      setAllPostLikes(data)
+    })
+
   }, [])
   
   return (
