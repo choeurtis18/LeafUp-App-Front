@@ -9,27 +9,25 @@ import Filtres from './components/Filtres';
 
 
 interface TrickAndTipsPageProps {
-  allPosts : TrickAndTipsData[];
+    allPosts : TrickAndTipsData[];
 }
 
 
 const TrickAndTipsPage: React.FC<TrickAndTipsPageProps> = ({allPosts}) => {
-
-    console.log(allPosts);
   return (
     <div className='post-container'>
       <div className='circleUp'></div>
       <div className='header'>
         <h1>Tricks & Trips</h1>
-        <p>Fait par la communauté</p>
+        <p>Fait par la communautÃ©</p>
       </div>
-      {/*<Filtres setAllPosts={setAllPosts} allPosts={post_list} />
-      <ContainerCards allPosts={post_list} />*/}
+      {/* <Filtres setAllPosts={setAllPosts} allPosts={post_list} /> */}
+      <ContainerCards allPosts={allPosts} />
 
       <div className='circleDown'></div>
     </div>
   )
 
-}   
+}
 
 export default TrickAndTipsPage

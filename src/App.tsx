@@ -9,6 +9,7 @@ import useGetPlant from './Hook/useGetPlant';
 import useGetUser_plants from './Hook/useGetUser_plants';
 import useGetUser from './Hook/useGetUser';
 import useGetSpecies from './Hook/useGetSpecies';
+import useGetUserPlant from './Hook/useGetUserPlant';
 
 import { TrickAndTipsData } from './interfaces';
 import { User } from './interfaces/User';
@@ -52,12 +53,15 @@ function App() {
   const [allUser_plants,setAllUser_plants] = useState<User_plants[]>([]);
   const [allPlante,setAllPlante] = useState<Plante[]>([]);
   const [allSpecies,setAllSpecies] = useState<Species[]>([]);
+  const [plante,setPlante] = useState<Plante>();
+  const [specie,setSpecie] = useState<Species>();
 
   const getPostList = useGetPostList();
   const getPlantList = useGetPlant();
   const getUser_plants = useGetUser_plants();
   const getUser = useGetUser();
   const getSpecies = useGetSpecies();
+  const getUserPlan = useGetUserPlant(user_id);
   
   useEffect(() => {
     getPostList().then(data => {
@@ -77,9 +81,17 @@ function App() {
     })
 
     getSpecies().then(data => {
-      setAllSpecies(data)
+      setAllSpecies(data);  
     })
 
+    getUserPlan().then(data => {
+      setPlante(data);
+      allSpecies.forEach((element: Species) => {
+        if(element.id == plante?.species_id) {
+          setSpecie(element);
+        }
+      });
+    })
     
   }, [])
   
@@ -120,7 +132,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<HomePage/>} />
-          <Route path="/maplante" element={<PlantePage allSpecies={allSpecies} user_id={user_id} allPlante={allPlante} allUser_plants={allUser_plants}/>} />
+          <Route path="/maplante" element={<PlantePage specie={specie} plante={plante} />} />
           <Route path="/tricksandtips" element={<TrickAndTipsPage allPosts={allPosts}/>} />
           <Route path='/tricksandtips/:id' element={<Post/>}></Route>
           <Route path="/profil" element={<ProfilPage/>} />

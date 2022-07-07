@@ -4,28 +4,8 @@ import CurrentPLant from '../Asset/plante.png';
 import LogoIcon from'../Asset/icon-logo.svg';
 import '../Asset/css/plantepage.css';
 
-import { Plante } from '../interfaces/Plante';
-import { Species } from '../interfaces/Species';
 
 export default function PlantePage(props:any) {
-  var plante: Plante;
-  var species: Species;
-
-  props.allPlante.forEach((element: Plante) => {
-    for(var id=0; id < props.allUser_plants.length; id++) {
-      if((props.allUser_plants[id].user_id == props.user_id) &&
-        (props.allUser_plants[id].plant_id == element.id)
-      ) {
-        plante = element;
-      }
-    }
-  });
-  props.allSpecies.forEach((element: Species) => {
-    if(element.id == plante.species_id) {
-      species = element;
-    }
-  });
-
   return (
     <div className='container sm:px-24 sm:py-12 p-6 bg-[#F6F6F6]'>
       <h1 className='container-title text-3xl	text-primary-color-1 mb-12 hidden sm:block'>DashBoard</h1>
