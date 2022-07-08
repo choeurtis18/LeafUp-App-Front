@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-export default function ParametrePage() {
+import useFetchPlantData from '../Hook/new-useGetUserPlant';
+import useFetchUserData from '../Hook/new-useGetUser';
+
+export default function ParametrePage(props:any) {
+  const {plante, loading_plante} = useFetchPlantData(props.user_id);
+  const {user, loading_user} = useFetchUserData(props.user_id);
+
   return (
 
     <div className="container">

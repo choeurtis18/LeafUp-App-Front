@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { TrickAndTipsData } from "../../interfaces";
 import '../../Styles/style.css'
 import Note from "./Note";
+
 interface TrickAndTipsProps {
     allPosts: TrickAndTipsData[] | null;
 }

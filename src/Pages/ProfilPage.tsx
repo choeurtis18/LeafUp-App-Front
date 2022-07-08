@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Header from '../Header';
 import Posts from '../Posts';
 import profil from '../Asset/Ritchie.jpg';
@@ -6,8 +6,16 @@ import iconpost from '../Asset/iconpost.png'
 import likepost from '../Asset/likepost.png'
 import background from "../Asset/backgroundHeader.jpg";
 
-export default function ProfilPage() {
-  
+import ContainerCards from './components/ContainerCards';
+import useFetchPlantData from '../Hook/new-useGetUserPlant';
+import useFetchUserData from '../Hook/new-useGetUser';
+import useGetUserPosts from '../Hook/new-useGetUserPosts';
+
+export default function ProfilPage(props:any) {
+  const {plante, loading_plante} = useFetchPlantData(props.user_id);
+  const {user, loading_user} = useFetchUserData(props.user_id);
+  const {allPosts, loading} = useGetUserPosts(props.user_id);
+
   return (
     <div className='container'>
       <Header
@@ -28,6 +36,7 @@ export default function ProfilPage() {
       <a href="" className="w-full flex justify-center my-8">
         <button className="rounded-xl lg:w-3/12 w-2/3 p-[13px] bg-[#112703] text-white text-center">Ajouter un Post</button>
       </a>
+      <ContainerCards allPosts={allPosts} />
       <div className="grid lg:grid-cols-3">
         <Posts 
           post_title = "Comment prendre soin de ses plantes ?"
@@ -37,35 +46,6 @@ export default function ProfilPage() {
           role = "Expert"
           date = "06/07/2022"
         />
-      
-        <Posts 
-          post_title = "Comment prendre soin de ses plantes ?"
-          post_content = "Dans ce Post vous trouverez tous les conseils nécessaires pour vous aider à garder vos plantes en vie. "
-          post_author = "J. Lawrence"
-          post_url = "tricksandtips/11"
-          role = "Expert"
-          date = "06/07/22"
-        />
-      
-        <Posts 
-          post_title = "Comment prendre soin de ses plantes ?"
-          post_content = "Dans ce Post vous trouverez tous les conseils nécessaires pour vous aider à garder vos plantes en vie. "
-          post_author = "J. Lawrence"
-          post_url = "tricksandtips/11"
-          role = "Expert"
-          date = "06/07/22"
-        />
-      
-        <Posts 
-          post_title = "Comment prendre soin de ses plantes ?"
-          post_content = "Dans ce Post vous trouverez tous les conseils nécessaires pour vous aider à garder vos plantes en vie. "
-          post_author = "J. Lawrence"
-          post_url = "tricksandtips/11"
-          role = "Expert"
-          date = "06/07/22"
-        />
-      
-        
       </div>
       
     </div>

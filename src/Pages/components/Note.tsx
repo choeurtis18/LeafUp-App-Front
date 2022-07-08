@@ -1,10 +1,6 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FaArrowUp } from 'react-icons/fa';
 import {FaArrowDown} from 'react-icons/fa';
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import PostDetail from '../components/PostDetail';
-import { TrickAndTipsData } from '../../interfaces';
+import React from 'react';
 import '../../Styles/style.css'
 
 

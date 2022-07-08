@@ -1,31 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 
 import logo_green from './Asset/logo_green.svg';
 import logo_white from './Asset/logo_white.svg';
-
-import useGetPostList from './Hook/useGetPostList';
-import useGetPlant from './Hook/useGetPlant';
-import useGetUser_plants from './Hook/useGetUser_plants';
-import useGetUserList from './Hook/useGetUserList';
-import useGetSpecies from './Hook/useGetSpecies';
-import useGetUserPlant from './Hook/useGetUserPlant';
-import useGetUser from './Hook/useGetUser';
-import useGetUserPostList from './Hook/useGetUserPostList';
-import useLogin from './Hook/useLogin';
-import useRegister from './Hook/useRegister';
-import useGetRecordPosts from './Hook/useGetRecordPosts';
-import useGetPostLikes from './Hook/useGetPostLikes';
-import useGetImgUsers from './Hook/useGetImgUsers';
-
-import { TrickAndTipsData } from './interfaces';
-import { User } from './interfaces/User';
-import { User_plants } from './interfaces/User_plants';
-import { Plante } from './interfaces/Plante';
-import { Species } from './interfaces/Species';
-import { Comments } from './interfaces/Comments';
-import { PostLikes } from './interfaces/PostLikes';
-import { ImgUsers } from './interfaces/ImgUsers';
 
 import './App.css';
 import HomePage from './Pages/HomePage';
@@ -37,8 +14,6 @@ import TrickAndTipsPage from './Pages/TrickAndTipsPage';
 import SignUpPage from './Pages/SignUpPage';
 import SignInPage from './Pages/SignInPage';
 import Post from './Pages/Post';
-import useGetComments from './Hook/useGetComments';
-import { RecordPosts } from './interfaces/RecordPosts';
 
 function App() {
   const navActive = (event: { target: any; }) => {
@@ -58,85 +33,9 @@ function App() {
     }
   }
   document.addEventListener('mousedown', navActive, false);
-  
-  const user_id = 1;
-  const [allPosts,setAllPosts] = useState<TrickAndTipsData[]>([]);
-  const [allUsers,setAllUsers] = useState<User[]>([]);
-  const [allUser_plants,setAllUser_plants] = useState<User_plants[]>([]);
-  const [allPlante,setAllPlante] = useState<Plante[]>([]);
-  const [allSpecies,setAllSpecies] = useState<Species[]>([]);
-  const [user,setUser] = useState<User>();
-  const [plante,setPlante] = useState<Plante>();
-  const [specie,setSpecie] = useState<Species>();
-  const [user_posts,setUser_posts] = useState<TrickAndTipsData[]>();
-  
-  const [allComments,setAllComments] = useState<Comments[]>([]);
-  const [allPostLikes,setAllPostLikes] = useState<PostLikes[]>([]);
-  const [allRecordPosts, setAllRecordPosts] = useState<RecordPosts[]>([]);
-  const [allImgUsers, setAllImgUsers] = useState<ImgUsers[]>([]);
 
-  const getPostList = useGetPostList();
-  const getPlantList = useGetPlant();
-  const getUser_plants = useGetUser_plants();
-  const getUserList = useGetUserList();
-  const getSpecies = useGetSpecies();
-  const getUserPlan = useGetUserPlant(user_id);
-  const getUser = useGetUser(user_id);
-  const getUserPostList= useGetUserPostList(user_id);
-  
-  const getComments= useGetComments();
-  const getPostLikes= useGetPostLikes();
-  const getRecordPosts= useGetRecordPosts();
-  const getImgUsers= useGetImgUsers();
-
-  useEffect(() => {
-    getPostList().then(data => {
-      setAllPosts(data)
-    })
-
-    getPlantList().then(data => {
-      setAllPlante(data)
-    })
-
-    getUser_plants().then(data => {
-      setAllUser_plants(data)
-    })
-
-    getUserList().then(data => {
-      setAllUsers(data)
-    })
-
-    getSpecies().then(data => {
-      setAllSpecies(data);  
-    })
-
-    getUserPlan().then(data => {
-      setPlante(data);
-      allSpecies.forEach((element: Species) => {
-        if(element.id == plante?.species_id) {
-          setSpecie(element);
-        }
-      });
-    })
-
-    getUser().then(data => {
-      setUser(data)
-    })
-
-    getUserPostList().then(data => {
-      setUser_posts(data)
-    })
-
-    getComments().then(data => {
-      setAllComments(data)
-    })
-    
-    getPostLikes().then(data => {
-      setAllPostLikes(data)
-    })
-
-  }, [])
-  
+  //Temp var
+  let user_id = 1;
   return (
     <div className="App">
       <BrowserRouter>      
@@ -170,17 +69,17 @@ function App() {
           </li>	
           </div>
         </nav>
-            
-        {/*specie={specie} plante={plante}*/}
+
         <Routes>
           <Route path="/" element={<HomePage/>} />
-          <Route path="/maplante" element={<PlantePage  />} />
-          <Route path="/tricksandtips" element={<TrickAndTipsPage allPosts={allPosts}/>} />
+          <Route path="/maplante" element={<PlantePage user_id={user_id} />} />
+          <Route path="/tricksandtips" element={<TrickAndTipsPage />} />
           <Route path='/tricksandtips/:id' element={<Post/>}></Route>
-          <Route path="/profil" element={<ProfilPage/>} />
-          <Route path="/parametre" element={<ParametrePage/>} />
+          <Route path="/profil" element={<ProfilPage user_id={user_id}/>} />
+          <Route path="/parametre" element={<ParametrePage user_id={user_id}/>} />
           <Route path="/inscription" element={<SignUpPage/>} />
           <Route path="/connexion" element={<SignInPage/>} />
+          <Route path="/tricksandtips/undefined" element={<NotFound/>} />
           <Route path="*" element={<NotFound/>} />
         </Routes>
       </BrowserRouter>

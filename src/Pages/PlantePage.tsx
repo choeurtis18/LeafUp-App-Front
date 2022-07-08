@@ -5,7 +5,20 @@ import LogoIcon from'../Asset/icon-logo.svg';
 import '../Asset/css/plantepage.css';
 
 
+import useFetchPlantData from '../Hook/new-useGetUserPlant';
+import useFetchParameterData from '../Hook/new-useGetPlantParameters';
+import { useEffect } from 'react';
+
 export default function PlantePage(props:any) {
+  const {plante, loading_plante} = useFetchPlantData(props.user_id);
+  
+  useEffect(() => {
+    if(plante?.id) {
+      const {species, loading_species} = useFetchParameterData(plante?.id);
+    }
+  });
+  
+
   return (
     <div className='container sm:px-24 sm:py-12 p-6 bg-[#F6F6F6]'>
       <h1 className='container-title text-3xl	text-primary-color-1 mb-12 hidden sm:block'>DashBoard</h1>
