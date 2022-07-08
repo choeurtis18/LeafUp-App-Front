@@ -34,8 +34,9 @@ const PostDetail: React.FC<PostDetailProps> = ({onePost,comments}) => {
 
 
         getComments().then(data => {
-            setAllComments(data);
+            console.log("data");
             console.log(data);
+            setAllComments(data);
         })
         
     }, [value]);
