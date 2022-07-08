@@ -171,10 +171,10 @@ function App() {
           </div>
         </nav>
             
-
+        {/*specie={specie} plante={plante}*/}
         <Routes>
           <Route path="/" element={<HomePage/>} />
-          <Route path="/maplante" element={<PlantePage specie={specie} plante={plante} />} />
+          <Route path="/maplante" element={<PlantePage  />} />
           <Route path="/tricksandtips" element={<TrickAndTipsPage allPosts={allPosts}/>} />
           <Route path='/tricksandtips/:id' element={<Post/>}></Route>
           <Route path="/profil" element={<ProfilPage/>} />
