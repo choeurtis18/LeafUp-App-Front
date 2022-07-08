@@ -7,25 +7,40 @@ import '../../Styles/style.css'
 import GifPlant from '../../Asset/plant.gif'
 import Card from '../../Components/Card';
 
+import useGetPostComments from '../../Hook/useGetPostComments';
+
 interface PostDetailProps {
-    onePost : TrickAndTipsData | null ;
+    onePost : TrickAndTipsData ;
     comments : Comments | null ;
 }
 
 const PostDetail: React.FC<PostDetailProps> = ({onePost,comments}) => {
+    const [allComments,setAllComments] = useState<Comments[]>([]);
 
     const textareaRef = useRef<HTMLTextAreaElement | null>(null);
     const [value, setValue] = useState<String>();
     const textAreaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         setValue(event.target.value);
       };
+    const getComments = useGetPostComments(onePost?.id);
+    //const getComments = useGetPostComments(1);
+
     useEffect(() => {
         if (textareaRef && textareaRef.current) {
           textareaRef.current.style.height = "0px";
           const scrollHeight = textareaRef.current.scrollHeight;
           textareaRef.current.style.height = scrollHeight + "px";
         }
-      }, [value]);
+
+
+        getComments().then(data => {
+            setAllComments(data);
+            console.log(data);
+        })
+        
+    }, [value]);
+
+
 
     return(
         <div className="post">
@@ -44,8 +59,9 @@ const PostDetail: React.FC<PostDetailProps> = ({onePost,comments}) => {
         <p style={{paddingLeft: "30px"}}>NOM Auteur</p>
             </div>
            <div className='bodyPost'>
-                <p style={{padding: "30px"}}>{onePost?.body}</p>
+                <p style={{padding: "30px"}}>{onePost?.content}</p>
             </div> 
+            
             <div className='sectionCommentaires px-6  pb-2'>
                 <h3 >Commentaires</h3>
                 <hr/>

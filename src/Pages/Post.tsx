@@ -15,7 +15,7 @@ type PostParams = {
 
 
     const {id} = useParams<PostParams>();
-    const [onePost, setOnePost]= useState<TrickAndTipsData | null>(null)
+    const [onePost, setOnePost]= useState<TrickAndTipsData | any>()
     const [comments, setAllComments]= useState< Comments | null>(null)
 
     useEffect(() => {
