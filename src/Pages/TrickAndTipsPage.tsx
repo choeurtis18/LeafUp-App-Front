@@ -2,10 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { TrickAndTipsData } from '../interfaces';
 import '../Styles/style.css'
-import Cards from './components/Cards';
 import ContainerCards from './components/ContainerCards';
-import ContainerCardsBis from './components/ContainerCardsBis';
-import Filtres from './components/Filtres';
 
 
 interface TrickAndTipsPageProps {
