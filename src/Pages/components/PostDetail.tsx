@@ -7,7 +7,7 @@ import '../../Styles/style.css'
 import GifPlant from '../../Asset/plant.gif'
 import Card from '../../Components/Card';
 
-import useGetPostComments from '../../Hook/useGetPostComments';
+import getPostComments from '../../Hook/useGetPostComments';
 
 interface PostDetailProps {
     onePost : TrickAndTipsData ;
@@ -22,8 +22,19 @@ const PostDetail: React.FC<PostDetailProps> = ({onePost,comments}) => {
     const textAreaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         setValue(event.target.value);
       };
-    const getComments = useGetPostComments(onePost?.id);
+      
     //const getComments = useGetPostComments(1);
+
+    useEffect(() => {
+
+        onePost?.id && 
+        getPostComments(onePost?.id)().then(data => {
+            console.log("data");
+            console.log(data);
+            setAllComments(data);
+        })
+        
+    }, [onePost?.id]);
 
     useEffect(() => {
         if (textareaRef && textareaRef.current) {
@@ -31,13 +42,6 @@ const PostDetail: React.FC<PostDetailProps> = ({onePost,comments}) => {
           const scrollHeight = textareaRef.current.scrollHeight;
           textareaRef.current.style.height = scrollHeight + "px";
         }
-
-
-        getComments().then(data => {
-            console.log("data");
-            console.log(data);
-            setAllComments(data);
-        })
         
     }, [value]);
 
