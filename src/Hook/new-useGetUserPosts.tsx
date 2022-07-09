@@ -10,7 +10,7 @@ const useGetUserPosts = (user_id:number) => {
     useEffect(() => {
         const fetchPosts = async () => {
         try {
-            const { data: response } = await axios.get('http://127.0.0.1:8000/api/posts/user/'+user_id+'/');
+            const { data: response } = await axios.get('http://127.0.0.1:8000/api/postbyusers/'+user_id+'/');
             setAllPosts(response);
             console.log("In useGetUserPosts");
             console.log(response);
