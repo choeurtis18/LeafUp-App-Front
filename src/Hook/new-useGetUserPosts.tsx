@@ -11,7 +11,7 @@ const useGetUserPosts = (user_id:number) => {
         const fetchPosts = async () => {
         try {
             const { data: response } = await axios.get('http://127.0.0.1:8000/api/postbyusers/'+user_id+'/');
-            setAllPosts(response);
+            setAllPosts(response.posts);
             console.log("In useGetUserPosts");
             console.log(response);
             console.log(allPosts);
