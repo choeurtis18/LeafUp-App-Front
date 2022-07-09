@@ -11,8 +11,8 @@ import useFetchDataComment from '../../Hook/new-useGetPostComments';
 export default function PostDetail(id:any) {
     console.log("In PostDetail");
     console.log(id);
-    const {post, loading_post} = useFetchDataPost(id);
-    const {allComments, loading_comment} = useFetchDataComment(id);
+    const {post, loading_post} = useFetchDataPost(id.id);
+    const {allComments, loading_comment} = useFetchDataComment(id.id);
 
 
     const textareaRef = useRef<HTMLTextAreaElement | null>(null);
