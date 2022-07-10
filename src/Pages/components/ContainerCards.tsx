@@ -35,7 +35,7 @@ const ContainerCards: React.FC<TrickAndTipsProps> = ({allPosts}) => {
                 </div>
                 <div className="px-6  pb-2">
                     <p className="mt-3 text-gray-600 text-sm md:text-base nivdate">
-                        <span>{post.date}</span>
+                        <span>{post.created_at}</span>
                     </p>
                 </div>
 

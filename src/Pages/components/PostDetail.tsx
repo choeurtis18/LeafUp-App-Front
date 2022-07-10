@@ -40,17 +40,16 @@ export default function PostDetail(id:any) {
         <div className="post">
            <div className='header'>
                 <h1>{post?.title}</h1>
-                <p>{post?.date}</p>
-                <button className='button-fav'><FaHeart  /></button>
+                <p>{post?.created_at}</p>
+                <button className='button-fav'><FaHeart  />{post?.nb_likes}</button>
             </div>
             <div className='image'>
-            <div className='container mx-auto px-4'>
+                <div className='container mx-auto px-4'>
 
-            <Card css=' lg:h-80 '> 
-                <img src={GifPlant} alt="GifPlant" className='rounded-xl lg:h-full lg:w-full lg:object-cover'/>
-            </Card>
-            </div>
-            {/*<p style={{paddingLeft: "30px"}}>NOM Auteur</p>*/}
+                <Card css=' lg:h-80 '> 
+                    <img src={GifPlant} alt="GifPlant" className='rounded-xl lg:h-full lg:w-full lg:object-cover'/>
+                </Card>
+                </div>  
             </div>
            <div className='bodyPost'>
                 <p style={{padding: "30px"}}>{post?.content}</p>
