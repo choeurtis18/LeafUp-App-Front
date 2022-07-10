@@ -54,7 +54,13 @@ export default function PostDetail(id:any) {
            <div className='bodyPost'>
                 <p style={{padding: "30px"}}>{post?.content}</p>
             </div> 
-            
+            {allComments?.map(comment => (
+                <div>
+                    <span>{comment.user_id}</span>
+                    <span>{comment.date}</span>
+                    <p>{comment.content}</p>
+                </div>
+            ))}
             <div className='sectionCommentaires px-6  pb-2'>
                 <h3 >Commentaires</h3>
                 <hr/>
