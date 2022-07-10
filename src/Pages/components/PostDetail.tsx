@@ -35,7 +35,8 @@ export default function PostDetail(id:any) {
     }, [value]);
 
 
-
+    console.log("Test allComments");
+    console.log(allComments);
     return(
         <div className="post">
            <div className='header'>
