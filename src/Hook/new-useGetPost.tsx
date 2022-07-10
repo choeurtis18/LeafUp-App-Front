@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import { TrickAndTipsData } from '../interfaces/TrickAndTips';
 
-const newuseGetPost = (id:number) => {
+const useGetPost = (id:number) => {
     const [post,setPost] = useState<TrickAndTipsData>();
     const [loading_post, setLoading] = useState(true);
 
@@ -29,4 +29,4 @@ const newuseGetPost = (id:number) => {
     };
 };
 
-export default newuseGetPost;
+export default useGetPost;

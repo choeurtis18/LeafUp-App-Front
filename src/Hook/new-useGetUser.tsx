@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import { User } from '../interfaces/User';
 
-const newuseGetUser = (user_id:number) => {
+const useGetUser = (user_id:number) => {
     const [user,setUser] = useState<User>();
     const [loading_user, setLoading] = useState(true);
 
@@ -29,4 +29,4 @@ const newuseGetUser = (user_id:number) => {
     };
 };
 
-export default newuseGetUser;
+export default useGetUser;

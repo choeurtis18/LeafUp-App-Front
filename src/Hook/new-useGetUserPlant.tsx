@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import { Plante } from '../interfaces/Plante';
 
-const newuseGetUserPlant = (user_id:number) => {
+const useGetUserPlant = (user_id:number) => {
     const [plante,setPlante] = useState<Plante>();
     const [loading_plante, setLoading] = useState(true);
 
@@ -29,4 +29,4 @@ const newuseGetUserPlant = (user_id:number) => {
     };
 };
 
-export default newuseGetUserPlant;
+export default useGetUserPlant;

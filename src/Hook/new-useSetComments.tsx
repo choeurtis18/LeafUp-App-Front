@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import { Comments } from '../interfaces/Comments';
 
-const newuseSetComments = (id:number, comment:Comments) => {
+const useSetComments = (id:number, comment:Comments) => {
     const [post_response,setResponse] = useState<''>();
     const [loading_setcomment, setLoading] = useState(true);
 
@@ -33,4 +33,4 @@ const newuseSetComments = (id:number, comment:Comments) => {
     };
 };
 
-export default newuseSetComments;
+export default useSetComments;
