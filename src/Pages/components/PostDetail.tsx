@@ -36,6 +36,7 @@ export default function PostDetail(id:any) {
 
 
     console.log("Test allComments");
+    console.log("Test allComments");
     console.log(allComments);
     return(
         <div className="post">
