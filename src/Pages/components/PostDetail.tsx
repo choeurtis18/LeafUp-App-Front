@@ -34,10 +34,6 @@ export default function PostDetail(id:any) {
         
     }, [value]);
 
-
-    console.log("Test allComments");
-    console.log("Test allComments");
-    console.log(allComments);
     return(
         <div className="post">
            <div className='header'>
@@ -56,8 +52,8 @@ export default function PostDetail(id:any) {
            <div className='bodyPost'>
                 <p style={{padding: "30px"}}>{post?.content}</p>
             </div> 
-            {allComments?.map(comment => (
-                <div>
+            {allComments?.map((comment) => (
+                <div key={comment.id}>
                     <span>{comment.user_id}</span>
                     <span>{comment.date}</span>
                     <p>{comment.content}</p>
