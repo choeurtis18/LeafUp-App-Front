@@ -3,7 +3,7 @@ export interface TrickAndTipsData {
     title: string;
     content: string;
     created_at: number;
-    userId: number;
+    user: number;
     nb_likes: number;
     img: string;
 }

@@ -4,21 +4,20 @@ import axios from 'axios';
 import { Comments } from '../interfaces/Comments';
 
 export default function useSetComments() {
+    const header = {
+        "Content-Type": "application/json",
+    }
     return (token: string, comment: Comments) => {
         console.log('In useSetComments');
         console.log(comment);
-        return axios.post('http://127.0.0.1:8000/api/commentbypost/', {
-            credentials: true,
-            body: new URLSearchParams({
+        return axios.post('http://127.0.0.1:8000/api/comments/', {
+            header: header,
+            //body: new URLSearchParams({
                 content: comment.content,
-                date: comment.date,
-                post_id: comment.post_id,
-                user_id: comment.user_id,
-            })
+                post: comment.post_id,
+                user: comment.user_id,
+            //}).toString()
         })
-            .then(res => {
-                res.data;
-                console.log(res.data)
-            })
+            .then(res => res.data)
     }
 };

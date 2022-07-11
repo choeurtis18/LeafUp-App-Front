@@ -17,17 +17,16 @@ export default function PostDetail(id:any) {
     
 
     
-    const [localComment, setLocalComment] = useState<Comments>({id: 999, content:"", date:"999", post_id:"999", user_id:"999"});
+    const [localComment, setLocalComment] = useState<Comments>({id: 999, content:"", date:newDate.toString(), post_id:id.id.toString(), user_id:'1'});
     const postComment = usePostDataComment();
 
     const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         if(post) {
+            console.log("post");
+            console.log(post);
             setLocalComment((prev) => ({
                 ...prev,
-                content: e.target.value,
-                date: newDate.toString(),
-                post_id: id.toString(),
-                user_id: post.userId.toString(),
+                [e.target.name]: e.target.value,
             }))
         }
     }
@@ -78,7 +77,6 @@ export default function PostDetail(id:any) {
                     name='content'
                     placeholder="Ecrivez quelque chose..."
                     onChange={handleChange}
-                    value=''
                 />
                 <button className="bg-blue-500 hover:bg-lime-900 text-white font-bold py-2 px-4 rounded-full button" >Confirmer</button>
             </form>
