@@ -14,6 +14,7 @@ import TrickAndTipsPage from './Pages/TrickAndTipsPage';
 import SignUpPage from './Pages/SignUpPage';
 import SignInPage from './Pages/SignInPage';
 import Post from './Pages/Post';
+import CreatePostPage from './Pages/CreatePostPage';
 
 function App() {
   const navActive = (event: { target: any; }) => {
@@ -79,6 +80,7 @@ function App() {
           <Route path="/parametre" element={<ParametrePage user_id={user_id}/>} />
           <Route path="/inscription" element={<SignUpPage/>} />
           <Route path="/connexion" element={<SignInPage/>} />
+          <Route path="/create_post" element={<CreatePostPage user_id={user_id}/>} />
           <Route path="/tricksandtips/undefined" element={<NotFound/>} />
           <Route path="*" element={<NotFound/>} />
         </Routes>

@@ -3,34 +3,20 @@ import axios from 'axios';
 
 import { TrickAndTipsData } from '../interfaces/TrickAndTips';
 
-const useSetPost = (id:number, post:TrickAndTipsData) => {
-    const [post_response,setResponse] = useState<''>();
-    const [loading_setcomment, setLoading] = useState(true);
-
-    console.log("In useSetPost befor post");
-    console.log(id);
-    console.log(post);
-
-    useEffect(() => {
-        const fetchPosts = async () => {
-        try {
-            const { data: response } = await axios.post('http://127.0.0.1:8000/api/post/'+id+'/');
-            setResponse(response);
-            console.log("In useSetPost");
-            console.log(response);
-            console.log(post_response);
-        } catch (error) {
-            console.error(error)
-        }
-        setLoading(false);
-        };
-        fetchPosts();
-    }, []);
-
-    return {
-        post,
-        loading_setcomment,
-    };
+export default function useSetPost() {
+    const header = {
+        "Content-Type": "application/json",
+    }
+    return (token: string, post: TrickAndTipsData) => {
+        console.log('In useSetPost');
+        console.log(post);
+        return axios.post('http://127.0.0.1:8000/api/post/', {
+            header: header,
+            title: post.title,
+            content: post.content,
+            user: post.user,
+            img: post.img,
+        })
+            .then(res => res.data)
+    }
 };
-
-export default useSetPost;

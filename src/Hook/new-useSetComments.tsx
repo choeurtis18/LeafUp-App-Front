@@ -8,8 +8,6 @@ export default function useSetComments() {
         "Content-Type": "application/json",
     }
     return (token: string, comment: Comments) => {
-        console.log('In useSetComments');
-        console.log(comment);
         return axios.post('http://127.0.0.1:8000/api/comments/', {
             header: header,
             //body: new URLSearchParams({

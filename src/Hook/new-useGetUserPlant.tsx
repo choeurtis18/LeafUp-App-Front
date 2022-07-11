@@ -12,9 +12,6 @@ const useGetUserPlant = (user_id:number) => {
         try {
             const { data: response } = await axios.get('http://127.0.0.1:8000/api/userplants/'+user_id+'/');
             setPlante(response);
-            console.log("In newuseGetUserPlant");
-            console.log(response);
-            console.log(plante);
         } catch (error) {
             console.error(error)
         }

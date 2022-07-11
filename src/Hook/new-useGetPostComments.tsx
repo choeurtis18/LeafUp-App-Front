@@ -12,9 +12,6 @@ const useGetPostComments = (id:number) => {
         try {
             const { data: response } = await axios.get('http://127.0.0.1:8000/api/commentbypost/'+id+'/');
             setComments(response.comments);
-            console.log("In newuseGetPostComments");
-            console.log(response.comments);
-            console.log(allComments);
         } catch (error) {
             console.error(error)
         }

@@ -10,12 +10,14 @@ import ContainerCards from './components/ContainerCards';
 import useFetchPlantData from '../Hook/new-useGetUserPlant';
 import useFetchUserData from '../Hook/new-useGetUser';
 import useGetUserPosts from '../Hook/new-useGetUserPosts';
+import { useNavigate } from 'react-router-dom';
 
 export default function ProfilPage(props:any) {
   const {plante, loading_plante} = useFetchPlantData(props.user_id);
   const {user, loading_user} = useFetchUserData(props.user_id);
   const {allPosts, loading} = useGetUserPosts(props.user_id);
 
+  const navigate = useNavigate();
   return (
     <div className='container'>
       <Header
@@ -34,7 +36,7 @@ export default function ProfilPage(props:any) {
         </div>
       </div>
       <a href="" className="w-full flex justify-center my-8">
-        <button className="rounded-xl lg:w-3/12 w-2/3 p-[13px] bg-[#112703] text-white text-center">Ajouter un Post</button>
+        <button onClick={() => navigate(`/create_post/`) } className="rounded-xl lg:w-3/12 w-2/3 p-[13px] bg-[#112703] text-white text-center">Ajouter un Post</button>
       </a>
       <ContainerCards allPosts={allPosts} />
       <div className="grid lg:grid-cols-3">

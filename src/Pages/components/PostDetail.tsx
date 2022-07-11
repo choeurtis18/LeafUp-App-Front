@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { FaHeart } from 'react-icons/fa';
 import '../../Styles/style.css'
 import GifPlant from '../../Asset/plant.gif'
@@ -22,8 +22,6 @@ export default function PostDetail(id:any) {
 
     const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         if(post) {
-            console.log("post");
-            console.log(post);
             setLocalComment((prev) => ({
                 ...prev,
                 [e.target.name]: e.target.value,
@@ -80,23 +78,6 @@ export default function PostDetail(id:any) {
                 />
                 <button className="bg-blue-500 hover:bg-lime-900 text-white font-bold py-2 px-4 rounded-full button" >Confirmer</button>
             </form>
-{/*
-            <div className='sectionCommentaires px-6  pb-2'>
-                <h3 >Commentaires</h3>
-                <hr/>
-                <p>Laissez un commentaire</p>
-                <textarea
-                    ref={textareaRef}
-                    placeholder="Ecrivez quelque chose..."
-                    onChange={textAreaChange}
-                >
-                    {value}
-                </textarea>
-                <button className="bg-blue-500 hover:bg-lime-900 text-white font-bold py-2 px-4 rounded-full button" >Confirmer</button>
-
-            </div>
- */}
-
         </div>
     )
 }

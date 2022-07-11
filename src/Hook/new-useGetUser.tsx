@@ -12,9 +12,6 @@ const useGetUser = (user_id:number) => {
         try {
             const { data: response } = await axios.get('http://127.0.0.1:8000/api/users/'+user_id+'/');
             setUser(response);
-            console.log("In newuseGetUser");
-            console.log(response);
-            console.log(user);
         } catch (error) {
             console.error(error)
         }

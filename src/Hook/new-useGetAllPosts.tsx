@@ -12,9 +12,6 @@ const useGetAllPosts = () => {
         try {
             const { data: response } = await axios.get('http://127.0.0.1:8000/api/posts/');
             setAllPosts(response);
-            console.log("In newuseGetAllPosts");
-            console.log(response);
-            console.log(allPosts);
         } catch (error) {
             console.error(error)
         }

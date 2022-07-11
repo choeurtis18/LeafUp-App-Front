@@ -12,9 +12,6 @@ const useGetPlantParameters = (plante_id:number) => {
         try {
             const { data: response } = await axios.get('http://127.0.0.1:8000/api/species/'+plante_id+'/');
             setSpecies(response);
-            console.log("In useGetPlantParameters");
-            console.log(response);
-            console.log(species);
         } catch (error) {
             console.error(error)
         }
