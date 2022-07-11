@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { User } from '../../interfaces/User';
 
-import usePostDataUser from '../../Hook/new-useGetUser';
+import { User } from '../../interfaces/User';
+import usePostDataUser from '../../Hook/new-useSetUser';
 
 export default function FormSignIn() {
   const [localUser, setLocalUser] = useState<User>({id: 999, lastname:"", firstname:"", email:"", password:"", Token:"", created_at:1, pseudo:""});
-  const postComment = usePostDataUser();
+  const postUser = usePostDataUser();
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
       setLocalUser((prev) => ({
@@ -17,7 +17,7 @@ export default function FormSignIn() {
   const handleSubmit = (e: any) => {
       e.preventDefault();
       if (localUser != null) {
-          postComment('ertyui', localComment)
+          postUser('ertyui', localUser)
               .then((data: any) => {
                   console.log(data);
               })
