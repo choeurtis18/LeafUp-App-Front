@@ -14,6 +14,7 @@ import TrickAndTipsPage from './Pages/TrickAndTipsPage';
 import SignUpPage from './Pages/SignUpPage';
 import SignInPage from './Pages/SignInPage';
 import Post from './Pages/Post';
+import CreatePostPage from './Pages/CreatePostPage';
 
 function App() {
   const navActive = (event: { target: any; }) => {
@@ -34,6 +35,8 @@ function App() {
   }
   document.addEventListener('mousedown', navActive, false);
 
+  //Temp var
+  let user_id = 1;
   return (
     <div className="App">
       <BrowserRouter>      
@@ -67,17 +70,18 @@ function App() {
           </li>	
           </div>
         </nav>
-            
 
         <Routes>
           <Route path="/" element={<HomePage/>} />
-          <Route path="/maplante" element={<PlantePage/>} />
-          <Route path="/tricksandtips" element={<TrickAndTipsPage/>} />
+          <Route path="/maplante" element={<PlantePage user_id={user_id} />} />
+          <Route path="/tricksandtips" element={<TrickAndTipsPage />} />
           <Route path='/tricksandtips/:id' element={<Post/>}></Route>
-          <Route path="/profil" element={<ProfilPage/>} />
-          <Route path="/parametre" element={<ParametrePage/>} />
+          <Route path="/profil" element={<ProfilPage user_id={user_id}/>} />
+          <Route path="/parametre" element={<ParametrePage user_id={user_id}/>} />
           <Route path="/inscription" element={<SignUpPage/>} />
           <Route path="/connexion" element={<SignInPage/>} />
+          <Route path="/create_post" element={<CreatePostPage user_id={user_id}/>} />
+          <Route path="/tricksandtips/undefined" element={<NotFound/>} />
           <Route path="*" element={<NotFound/>} />
         </Routes>
       </BrowserRouter>
@@ -86,3 +90,4 @@ function App() {
 }
 
 export default App;
+//test

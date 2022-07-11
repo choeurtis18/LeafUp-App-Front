@@ -32,6 +32,7 @@ const closeMenu = (event: { target: any; }) => {
 }
 document.addEventListener('mousedown', closeMenu, false);
 
+
 root.render(
   <React.StrictMode>
   <header>
@@ -40,7 +41,7 @@ root.render(
       <img src={logo_green}/>
     </div>
     <div className='header-container'>
-      <FontAwesomeIcon icon={faSignOutAlt} className='header-container-sign-icon' />
+      <a href='/connexion/'><FontAwesomeIcon icon={faSignOutAlt} className='header-container-sign-icon'/></a>
       <FontAwesomeIcon icon={faBars} className='header-container-menu-icon'/>
     </div>
   </header>

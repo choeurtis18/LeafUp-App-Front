@@ -1,67 +1,84 @@
-import { TrickAndTipsData } from '../../interfaces';
-import React, { useState, useEffect, useRef } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useState } from "react";
 import { FaHeart } from 'react-icons/fa';
 import '../../Styles/style.css'
 import GifPlant from '../../Asset/plant.gif'
 import Card from '../../Components/Card';
 
-interface PostDetaiProps {
-    onePost : TrickAndTipsData | null ;
-}
+import { Comments } from '../../interfaces/Comments';
 
-const PostDetail: React.FC<PostDetaiProps> = ({onePost}) => {
+import useFetchDataPost from '../../Hook/new-useGetPost';
+import useFetchDataComment from '../../Hook/new-useGetPostComments';
+import usePostDataComment from '../../Hook/new-useSetComments';
 
-    const textareaRef = useRef<HTMLTextAreaElement | null>(null);
-    const [value, setValue] = useState<String>();
-    const textAreaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setValue(event.target.value);
-      };
-    useEffect(() => {
-        if (textareaRef && textareaRef.current) {
-          textareaRef.current.style.height = "0px";
-          const scrollHeight = textareaRef.current.scrollHeight;
-          textareaRef.current.style.height = scrollHeight + "px";
+export default function PostDetail(id:any) {
+    const {post, loading_post} = useFetchDataPost(id.id);
+    const {allComments, loading_comment} = useFetchDataComment(id.id);
+    let newDate = new Date();
+    
+
+    
+    const [localComment, setLocalComment] = useState<Comments>({id: 999, content:"", date:newDate.toString(), post_id:id.id.toString(), user_id:'1'});
+    const postComment = usePostDataComment();
+
+    const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        if(post) {
+            setLocalComment((prev) => ({
+                ...prev,
+                [e.target.name]: e.target.value,
+            }))
         }
-      }, [value]);
+    }
+
+    const handleSubmit = (e: any) => {
+        e.preventDefault();
+        //if (loggedUser.token != null) {
+        if (localComment != null) {
+            postComment('ertyui', localComment)
+                .then((data: any) => {
+                    console.log(data);
+                })
+        }
+        //}
+    }
 
     return(
         <div className="post">
            <div className='header'>
-                <h1>{onePost?.title}</h1>
-                <p>date</p>
-                <button className='button-fav'><FaHeart  /></button>
+                <h1>{post?.title}</h1>
+                <p>{post?.created_at}</p>
+                <button className='button-fav'><FaHeart  />{post?.nb_likes}</button>
             </div>
             <div className='image'>
-            <div className='container mx-auto px-4'>
+                <div className='container mx-auto px-4'>
 
-            <Card css=' lg:h-80 '> 
-            <img src={GifPlant} alt="GifPlant" className='rounded-xl lg:h-full lg:w-full lg:object-cover'/>
-         </Card>
-         </div>
-        <p style={{paddingLeft: "30px"}}>NOM Auteur</p>
+                <Card css=' lg:h-80 '> 
+                    <img src={GifPlant} alt="GifPlant" className='rounded-xl lg:h-full lg:w-full lg:object-cover'/>
+                </Card>
+                </div>  
             </div>
            <div className='bodyPost'>
-                <p style={{padding: "30px"}}>{onePost?.body}</p>
+                <p style={{padding: "30px"}}>{post?.content}</p>
             </div> 
-            <div className='sectionCommentaires px-6  pb-2'>
+            <div className="container mx-auto px-4">
+            {allComments?.map((comment) => (
+                <div key={comment.id} className="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{comment.content}</h5>
+                    <p className="font-normal text-gray-700 dark:text-gray-400">{comment.date}</p>
+                </div>
+            ))}
+            </div>
+            
+            <form className='sectionCommentaires px-6  pb-2' onSubmit={handleSubmit}>
                 <h3 >Commentaires</h3>
                 <hr/>
                 <p>Laissez un commentaire</p>
-                <textarea
-                    ref={textareaRef}
+                <textarea 
+                    name='content'
                     placeholder="Ecrivez quelque chose..."
-                    onChange={textAreaChange}
-                >
-                    {value}
-                </textarea>
+                    onChange={handleChange}
+                />
                 <button className="bg-blue-500 hover:bg-lime-900 text-white font-bold py-2 px-4 rounded-full button" >Confirmer</button>
-
-            </div>
-
-
+            </form>
         </div>
     )
 }
-
-export default PostDetail
