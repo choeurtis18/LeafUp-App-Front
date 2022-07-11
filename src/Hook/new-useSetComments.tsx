@@ -3,34 +3,17 @@ import axios from 'axios';
 
 import { Comments } from '../interfaces/Comments';
 
-const useSetComments = (id:number, comment:Comments) => {
-    const [post_response,setResponse] = useState<''>();
-    const [loading_setcomment, setLoading] = useState(true);
-
-    console.log("In newuseSetComments befor post");
-    console.log(id);
-    console.log(comment);
-
-    useEffect(() => {
-        const fetchPosts = async () => {
-        try {
-            const { data: response } = await axios.post('http://127.0.0.1:8000/api/commentbypost/'+id+'/');
-            setResponse(response);
-            console.log("In newuseSetComments");
-            console.log(response);
-            console.log(post_response);
-        } catch (error) {
-            console.error(error)
-        }
-        setLoading(false);
-        };
-        fetchPosts();
-    }, []);
-
-    return {
-        post_response,
-        loading_setcomment,
-    };
+export default function useSetComments() {
+    return (token: string, comment: Comments) => {
+        return axios.post('http://127.0.0.1:8000/api/commentbypost/', {
+            credentials: true,
+            body: new URLSearchParams({
+                content: comment.content,
+                date: comment.content,
+                post_id: comment.content,
+                user_id: comment.content,
+            })
+        })
+            .then(res => res.data)
+    }
 };
-
-export default useSetComments;

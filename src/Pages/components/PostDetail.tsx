@@ -4,35 +4,38 @@ import '../../Styles/style.css'
 import GifPlant from '../../Asset/plant.gif'
 import Card from '../../Components/Card';
 
+import { Comments } from '../../interfaces/Comments';
 
 import useFetchDataPost from '../../Hook/new-useGetPost';
 import useFetchDataComment from '../../Hook/new-useGetPostComments';
+import usePostDataComment from '../../Hook/new-useSetComments';
 
 export default function PostDetail(id:any) {
-    console.log("In PostDetail");
-    console.log(id);
     const {post, loading_post} = useFetchDataPost(id.id);
     const {allComments, loading_comment} = useFetchDataComment(id.id);
 
-
-    const textareaRef = useRef<HTMLTextAreaElement | null>(null);
-    const [value, setValue] = useState<String>();
-    const textAreaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setValue(event.target.value);
-    };
     
-    useEffect(() => {
-        if (textareaRef && textareaRef.current) {
-          textareaRef.current.style.height = "0px";
-          const scrollHeight = textareaRef.current.scrollHeight;
-          textareaRef.current.style.height = scrollHeight + "px";
-        }
+    const [localComment, setLocalComment] = useState<Comments>({id: 999, content:'', date:999, post_id:999, user_id:999});
+    const postComment = usePostDataComment();
 
-        console.log("In PostDetail");
-        console.log(post);
-        console.log(allComments);
-        
-    }, [value]);
+    const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setLocalComment((prev) => ({
+            ...prev,
+            [e.target.name]: e.target.value
+        }))
+    }
+
+    const handleSubmit = (e: any) => {
+        e.preventDefault();
+        //if (loggedUser.token != null) {
+        if (localComment != null) {
+            postComment('ertyui', localComment)
+                .then((data: any) => {
+                    console.log(data);
+                })
+        }
+        //}
+    }
 
     return(
         <div className="post">
@@ -59,6 +62,20 @@ export default function PostDetail(id:any) {
                     <p>{comment.content}</p>
                 </div>
             ))}
+            
+            <form className='sectionCommentaires px-6  pb-2' onSubmit={handleSubmit}>
+                <h3 >Commentaires</h3>
+                <hr/>
+                <p>Laissez un commentaire</p>
+                <textarea 
+                    name='content'
+                    placeholder="Ecrivez quelque chose..."
+                    onChange={handleChange}
+                    value=''
+                />
+                <button className="bg-blue-500 hover:bg-lime-900 text-white font-bold py-2 px-4 rounded-full button" >Confirmer</button>
+            </form>
+{/*
             <div className='sectionCommentaires px-6  pb-2'>
                 <h3 >Commentaires</h3>
                 <hr/>
@@ -73,7 +90,7 @@ export default function PostDetail(id:any) {
                 <button className="bg-blue-500 hover:bg-lime-900 text-white font-bold py-2 px-4 rounded-full button" >Confirmer</button>
 
             </div>
-
+ */}
 
         </div>
     )
