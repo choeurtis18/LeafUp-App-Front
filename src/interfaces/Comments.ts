@@ -1,7 +1,7 @@
 export interface Comments {
     id: number;
     content: string;
-    date: number;
-    post_id: number;
-    user_id: number;
+    date: string;
+    post_id: string;
+    user_id: string;
 }

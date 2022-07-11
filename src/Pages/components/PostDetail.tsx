@@ -13,16 +13,23 @@ import usePostDataComment from '../../Hook/new-useSetComments';
 export default function PostDetail(id:any) {
     const {post, loading_post} = useFetchDataPost(id.id);
     const {allComments, loading_comment} = useFetchDataComment(id.id);
+    let newDate = new Date();
+    
 
     
-    const [localComment, setLocalComment] = useState<Comments>({id: 999, content:'', date:999, post_id:999, user_id:999});
+    const [localComment, setLocalComment] = useState<Comments>({id: 999, content:"", date:"999", post_id:"999", user_id:"999"});
     const postComment = usePostDataComment();
 
     const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setLocalComment((prev) => ({
-            ...prev,
-            [e.target.name]: e.target.value
-        }))
+        if(post) {
+            setLocalComment((prev) => ({
+                ...prev,
+                content: e.target.value,
+                date: newDate.toString(),
+                post_id: id.toString(),
+                user_id: post.userId.toString(),
+            }))
+        }
     }
 
     const handleSubmit = (e: any) => {
