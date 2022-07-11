@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import useFetchPlantData from '../Hook/new-useGetUserPlant';
 import useFetchUserData from '../Hook/new-useGetUser';
+import useFetchParameterData from '../Hook/new-useGetPlantParameters';
 
 export default function ParametrePage(props:any) {
   const {plante, loading_plante} = useFetchPlantData(props.user_id);
@@ -15,8 +16,8 @@ export default function ParametrePage(props:any) {
           <div className='mb-[41px] text-[#3b4a34]'>
             <div className='font-medium text-[#3B4A34] bg-white w-100 p-3 rounded-t-lg shadow-sm text-lg'>Mes informations</div>
             <div className='flex justify-between text-[#808080] my-[12px]'>
-              <li>Nom d'utilisateur</li>
-              <li>Random.l</li>
+              <li>{user?.Firstname}</li>
+              <li>{user?.Lastname}</li>
             </div>
             <div className='flex justify-between mb-[12px]'>
               <li>Mot de passe</li>
@@ -24,22 +25,22 @@ export default function ParametrePage(props:any) {
             </div>
             <div className='flex justify-between mb-[12px]'>
               <li>Email</li>
-              <li>prenom@mail.com</li>
+              <li>{user?.email}</li>
             </div>
             <div className='flex justify-between mb-[12px]'>
               <li>Description du Profil</li>
-              <li>United States</li>
+              <li>{user?.pseaudo}</li>
             </div>
           </div>
           <div className='mb-[41px] text-[#3b4a34]'>
             <div className='font-medium bg-white w-100 p-3 rounded-t-lg shadow-sm text-lg'>Informations sur Ma Plante</div>
             <div className='flex justify-between my-[12px]'>
               <li>Nom de ma plante</li>
-              <li>Ma Plante</li>
+              <li>{plante?.Name}</li>
             </div>
             <div className='flex justify-between mb-[12px]'>
               <li>Type de plante</li>
-              <li>Gerianium</li>
+              <li></li>
             </div>
             <div className='flex justify-between mb-[12px]'>
               <li>Notifications d'arrosage</li>
