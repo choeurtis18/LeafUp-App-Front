@@ -36,6 +36,8 @@ export default function CreatePostPage(props:any) {
       <form className="flex flex-col justify-center items-center mt-4" onSubmit={handleSubmit}>
           <input className="w-4/5 lg:w-1/3 rounded-lg p-[8px] pl-6 mb-6 shadow-lg" type="text" placeholder="title" name='title' onChange={handleChange}/>
           <input className="w-4/5 lg:w-1/3 rounded-lg p-[8px] pl-6 mb-6 shadow-lg" type="text" placeholder="content" name='content' onChange={handleChange}/>
+
+          <input className="w-4/5 lg:w-1/3 rounded-lg p-[8px] pl-6 mb-6 shadow-lg" type="text" placeholder="img" name='img' onChange={handleChange}/>
           <button className="cursor-pointer mt-6 shadow-lg bg-[#3b4a34] w-4/5 lg:w-1/3 rounded-xl p-[10px] text-xl text-white" type="submit">Ajouter</button>
       </form>
     </div>
