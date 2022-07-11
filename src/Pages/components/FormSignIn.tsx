@@ -16,14 +16,12 @@ export default function FormSignIn() {
 
   const handleSubmit = (e: any) => {
       e.preventDefault();
-      //if (loggedUser.token != null) {
       if (localUser != null) {
           postComment('ertyui', localComment)
               .then((data: any) => {
                   console.log(data);
               })
       }
-      //}
   }
 
   return (
