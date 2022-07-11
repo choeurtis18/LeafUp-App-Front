@@ -8,8 +8,6 @@ export default function useSetPost() {
         "Content-Type": "application/json",
     }
     return (token: string, post: TrickAndTipsData) => {
-        console.log('In useSetPost');
-        console.log(post);
         return axios.post('http://127.0.0.1:8000/api/posts/', {
             header: header,
             title: post.title,

@@ -16,19 +16,20 @@ export default function ProfilPage(props:any) {
   const {plante, loading_plante} = useFetchPlantData(props.user_id);
   const {user, loading_user} = useFetchUserData(props.user_id);
   const {allPosts, loading} = useGetUserPosts(props.user_id);
-  const firstname = user?.Firstname;
-  const lastname = user?.Lastname;
+  const firstname = user?.firstname;
+  const lastname = user?.lastname;
   const full_name = firstname+' '+lastname;
   const navigate = useNavigate();
-
+  console.log(user);
   return (
     <div className='container'>
       <Header
        IMGprofil = {profil}
        cover = {background}
        full_name = {full_name}
-       plant_name = {plante?.Name}
-       description = {user?.pseaudo}
+       plant_name = {plante?.name}
+       description = {user?.pseudo}
+       email = {user?.email}
       />
       <div className="flex justify-center gap-8 mb-4">
         <div className="w-1/2 lg:w-1/4 bg-white lg:px-24 py-2 shadow-md">

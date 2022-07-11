@@ -16,8 +16,8 @@ export default function ParametrePage(props:any) {
           <div className='mb-[41px] text-[#3b4a34]'>
             <div className='font-medium text-[#3B4A34] bg-white w-100 p-3 rounded-t-lg shadow-sm text-lg'>Mes informations</div>
             <div className='flex justify-between text-[#808080] my-[12px]'>
-              <li>{user?.Firstname}</li>
-              <li>{user?.Lastname}</li>
+              <li>{user?.firstname}</li>
+              <li>{user?.lastname}</li>
             </div>
             <div className='flex justify-between mb-[12px]'>
               <li>Mot de passe</li>
@@ -29,14 +29,14 @@ export default function ParametrePage(props:any) {
             </div>
             <div className='flex justify-between mb-[12px]'>
               <li>Description du Profil</li>
-              <li>{user?.pseaudo}</li>
+              <li>{user?.pseudo}</li>
             </div>
           </div>
           <div className='mb-[41px] text-[#3b4a34]'>
             <div className='font-medium bg-white w-100 p-3 rounded-t-lg shadow-sm text-lg'>Informations sur Ma Plante</div>
             <div className='flex justify-between my-[12px]'>
               <li>Nom de ma plante</li>
-              <li>{plante?.Name}</li>
+              <li>{plante?.name}</li>
             </div>
             <div className='flex justify-between mb-[12px]'>
               <li>Type de plante</li>

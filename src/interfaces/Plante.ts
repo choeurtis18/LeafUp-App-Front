@@ -1,7 +1,7 @@
 export interface Plante {
     id: number;
-    Name: string;
+    name: string;
     created_at: number;
-    species_id: number;
+    species: number;
     last_watering: number;
 }

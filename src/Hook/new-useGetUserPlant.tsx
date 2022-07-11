@@ -11,7 +11,7 @@ const useGetUserPlant = (user_id:number) => {
         const fetchPosts = async () => {
         try {
             const { data: response } = await axios.get('http://127.0.0.1:8000/api/userplants/'+user_id+'/');
-            setPlante(response);
+            setPlante(response.plants[0]);
         } catch (error) {
             console.error(error)
         }

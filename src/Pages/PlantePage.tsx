@@ -1,19 +1,18 @@
-// import React, { useState, useEffect } from 'react';
-import PlanteParams from '../Components/planteParams';
 import CurrentPLant from '../Asset/plante.png';
 import LogoIcon from'../Asset/icon-logo.svg';
 import '../Asset/css/plantepage.css';
 
 
 import useFetchPlantData from '../Hook/new-useGetUserPlant';
-import useFetchParameterData from '../Hook/new-useGetPlantParameters';
-import { useEffect } from 'react';
+import PlanteParams from '../Components/planteParams';
 
 export default function PlantePage(props:any) {
   const {plante, loading_plante} = useFetchPlantData(props.user_id);
-  
   return (
-    <div className='container sm:px-24 sm:py-12 p-6 bg-[#F6F6F6]'>
+    <div>
+    {loading_plante && <div>Loading</div>}
+    {!loading_plante && (
+      <div className='container sm:px-24 sm:py-12 p-6 bg-[#F6F6F6]'>
       <h1 className='container-title text-3xl	text-primary-color-1 mb-12 hidden sm:block'>DashBoard</h1>
       <div className='container sm:grid sm:grid-cols-2 flex flex-col-reverse'>
         <div className="grid grid-cols-2 gap-x-10	gap-y-5 row-span-3">
@@ -21,38 +20,38 @@ export default function PlantePage(props:any) {
           <PlanteParams
           class_supp=""
           params_type='Température'
-          params_value = {plante}
+          params_value = '20 °C'
           bg_color='#F6F6F6'
           txt_color='#3B4A34'
           />
           <PlanteParams
           class_supp='' 
           params_type='Humidité de l’Air'
-          params_value={plante}
+          params_value='40 %'
           bg_color="#3B4A34"
           txt_color='#FFFFFF'
           />
           <PlanteParams
           class_supp=""
           params_type = 'Humidité de la Terre'
-          params_value = {plante}
+          params_value = '70 %'
           bg_color = "#112703"
           txt_color="#FFFFFF"
           />
           <PlanteParams
           class_supp=''
           params_type="Luminosité"
-          params_value={plante}
+          params_value='20 Lux'
           bg_color='#F6F6F6'
           txt_color='#3B4A34'
            />
           <PlanteParams 
            class_supp="col-span-2"
            params_type='Dernière fois que la plante a été arrosée'
-           params_value={plante}
+           params_value={plante?.last_watering}
            bg_color='#6E8464'
            txt_color="#FFFFFF"
-           />
+          />
         </div>
 
         <div className="hidden sm:grid grid-rows-3 row-span-3 gap-y-5 justify-center mb-[10px]">
@@ -65,7 +64,7 @@ export default function PlantePage(props:any) {
 
           <div className="bg-white rounded-2xl w-100 p-6 sm:flex flex-row justify-between items-center drop-shadow-lg">
             <div className='flex flex-col gap-4'>
-              <h3 className='text-base plant-name'>{plante?.Name}</h3>
+              <h3 className='text-base plant-name'>{plante?.name}</h3>
             </div>
             <img src={LogoIcon} alt={LogoIcon} />
           </div>
@@ -73,9 +72,9 @@ export default function PlantePage(props:any) {
 
         <div className="sm:hidden grid grid-cols-2 gap-y-5">
           <div className="grid grid-rows-2 gap-y-5 mb-[270px]">
-            <h1 className='text-3xl plant-name'>{plante?.Name}</h1>
+            <h1 className='text-3xl plant-name'>{plante?.name}</h1>
             <span className='relative mt-5'>
-            <h2 className='absolute top-0 left-0 text-xl plant-type text-[#6E8464] uppercase !tracking-[0.4em] rotate-plant'>{plante?.Name}</h2>
+            <h2 className='absolute top-0 left-0 text-xl plant-type text-[#6E8464] uppercase !tracking-[0.4em] rotate-plant'>{plante?.name}</h2>
             </span>
           </div>
           <div className='flex justify-center items-center bg-rounded-green'>
@@ -83,6 +82,8 @@ export default function PlantePage(props:any) {
           </div>
         </div>
       </div>
+      </div>
+    )}
     </div>
   )
 
