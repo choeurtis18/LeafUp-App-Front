@@ -37,8 +37,11 @@ root.render(
   <React.StrictMode>
   <header>
     <div className='header-logo-container'>
-      <p>Leaf'UP</p>
-      <img src={logo_green}/>
+      
+      <a href="/" className='header-logo-container'>
+        <p>Leaf'UP</p>
+        <img src={logo_green}/>
+      </a>
     </div>
     <div className='header-container'>
       <a href='/connexion/'><FontAwesomeIcon icon={faSignOutAlt} className='header-container-sign-icon'/></a>

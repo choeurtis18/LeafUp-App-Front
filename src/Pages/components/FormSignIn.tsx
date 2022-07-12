@@ -2,8 +2,13 @@ import React, { useState } from 'react'
 
 import { User } from '../../interfaces/User';
 import usePostDataUser from '../../Hook/new-useSetLogin';
+import { LoggedUser } from '../../interfaces/logUser';
 
-export default function FormSignIn() {
+interface LoginFormPropsInterface {
+    setIsLoggedIn: React.Dispatch<LoggedUser>
+}
+
+export default function FormSignIn({setIsLoggedIn}:LoginFormPropsInterface) {
   const [localUser, setLocalUser] = useState<User>({id: 999, lastname:"", firstname:"", email:"", password:"", Token:"", created_at:1, pseudo:""});
   const postUser = usePostDataUser();
 

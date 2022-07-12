@@ -8,7 +8,7 @@ export default function useSetRegister() {
         "Content-Type": "application/json",
     }
     return (token: string, user: User) => {
-        return axios.post('http://127.0.0.1:8000/api/user/', {
+        return axios.post('http://127.0.0.1:8000/api/users/', {
             header: header,
             lastname: user.lastname,
             firstname: user.firstname,

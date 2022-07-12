@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 
 import logo_green from './Asset/logo_green.svg';
@@ -15,6 +15,7 @@ import SignUpPage from './Pages/SignUpPage';
 import SignInPage from './Pages/SignInPage';
 import Post from './Pages/Post';
 import CreatePostPage from './Pages/CreatePostPage';
+import { LoggedUser } from './interfaces/logUser';
 
 function App() {
   const navActive = (event: { target: any; }) => {
@@ -35,6 +36,8 @@ function App() {
   }
   document.addEventListener('mousedown', navActive, false);
 
+  const[isLoggedIn, setIsLoggedIn] = useState<LoggedUser>({id:1, token:'hhhh', date:'janvier'})
+
   //Temp var
   let user_id = 1;
   return (
@@ -51,23 +54,35 @@ function App() {
           <li>
             <img className="img_logo_green" src={logo_green} />
             <img className="img_logo_white" src={logo_white} />
+            <NavLink to="/tricksandtips" className="desktop-nav-link">Tricks and Tips</NavLink>
+          </li>
+          {isLoggedIn.token != 'hhhh' &&  
+          <>
+          <li>
+            <img className="img_logo_green" src={logo_green} />
+            <img className="img_logo_white" src={logo_white} />
             <NavLink to="/maplante" className="desktop-nav-link">Ma Plante</NavLink>
           </li>
           <li>
             <img className="img_logo_green" src={logo_green} />
             <img className="img_logo_white" src={logo_white} />
-            <NavLink to="/tricksandtips" className="desktop-nav-link">Tricks and Tips</NavLink>
+            <NavLink to="/connexion" className="desktop-nav-link">Mon Profil</NavLink>
           </li>
-          <li>
-            <img className="img_logo_green" src={logo_green} />
-            <img className="img_logo_white" src={logo_white} />
-            <NavLink to="/profil" className="desktop-nav-link">Mon Profil</NavLink>
-          </li>
+
           <li>
             <img className="img_logo_green" src={logo_green} />
             <img className="img_logo_white" src={logo_white} />
             <NavLink to="/parametre" className="desktop-nav-link">Paramètres</NavLink>
           </li>	
+          </>
+          }
+         {isLoggedIn.token == 'hhhh' &&
+          <li>
+            <img className="img_logo_green" src={logo_green} />
+            <img className="img_logo_white" src={logo_white} />
+            <NavLink to="/connexion" className="desktop-nav-link">Connexion</NavLink>
+          </li>
+         }
           </div>
         </nav>
 
@@ -78,8 +93,8 @@ function App() {
           <Route path='/tricksandtips/:id' element={<Post/>}></Route>
           <Route path="/profil" element={<ProfilPage user_id={user_id}/>} />
           <Route path="/parametre" element={<ParametrePage user_id={user_id}/>} />
-          <Route path="/inscription" element={<SignUpPage/>} />
-          <Route path="/connexion" element={<SignInPage/>} />
+          <Route path="/inscription" element={<SignUpPage setIsLoggedIn={setIsLoggedIn}/>} />
+          <Route path="/connexion" element={<SignInPage setIsLoggedIn={setIsLoggedIn}/>} />
           <Route path="/create_post" element={<CreatePostPage user_id={user_id}/>} />
           <Route path="/tricksandtips/undefined" element={<NotFound/>} />
           <Route path="*" element={<NotFound/>} />

@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <div className='container'>
         <NavLink to="/">
-            <span>Retourner à l'ccueil</span>
+            <span>Retourner à l'accueil</span>
         </NavLink>
     </div>
   )
