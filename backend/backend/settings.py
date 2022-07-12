@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-j*xlz3hil3i!hcg_%v+2cqvf5-35mfr#z6-#29l-vmanez-bph
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -155,6 +155,10 @@ CORS_ORIGIN_WHITELIST = [
      'http://localhost:3000',
 
 ]
+
+import dj_database_url
+prod_db=dj_database_url(conn_max_age=500)
+DATABASES['default'].update(prod_db)
 
 # Configure Django App for Heroku.
 import django_heroku
